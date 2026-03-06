@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ponder — AI Journal · aijj</title>
+  <meta name="description" content="Ponder is a private AI journal that understands your emotions. On-device AI. No cloud. Your thoughts stay yours.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream: #F7F3EC;
+      --warm-white: #FDFAF5;
+      --gold: #C9973A;
+      --gold-light: #E8C068;
+      --gold-pale: #F5E6C4;
+      --dark: #1A1610;
+      --mid: #5C5040;
+      --light: #9C8A72;
+      --border: rgba(201,151,58,0.2);
+    }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--dark); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.5; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; background: rgba(247,243,236,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--dark); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    nav ul { list-style: none; display: flex; gap: 36px; align-items: center; }
+    nav a { text-decoration: none; color: var(--mid); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    nav a:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding: 120px 48px 80px; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(232,192,104,0.12) 0%, transparent 70%); top: -200px; right: -200px; pointer-events: none; }
+    .hero-eyebrow { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .hero-eyebrow::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 300; line-height: 1.08; letter-spacing: -0.02em; color: var(--dark); margin-bottom: 24px; }
+    h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub { font-size: 1rem; color: var(--mid); max-width: 420px; line-height: 1.75; margin-bottom: 40px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 4px; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: all 0.25s; font-family: 'DM Sans', sans-serif; }
+    .btn-gold { background: var(--gold); color: white; border: 1px solid var(--gold); }
+    .btn-gold:hover { background: #b8862e; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(201,151,58,0.3); }
+    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+    .hero-note { margin-top: 20px; font-size: 0.78rem; color: var(--light); }
+
+    /* PHONE MOCKUP */
+    .phone-wrap { display: flex; justify-content: center; align-items: center; }
+    .phone {
+      width: 280px;
+      height: 560px;
+      background: var(--warm-white);
+      border-radius: 44px;
+      border: 1px solid var(--border);
+      box-shadow: 0 40px 80px rgba(26,22,16,0.12), 0 0 0 1px rgba(255,255,255,0.6) inset;
+      position: relative;
+      overflow: hidden;
+      animation: floatPhone 4s ease-in-out infinite;
+    }
+    @keyframes floatPhone { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-12px); } }
+    .phone-notch { position: absolute; top: 18px; left: 50%; transform: translateX(-50%); width: 80px; height: 24px; background: var(--dark); border-radius: 20px; z-index: 10; }
+    .phone-screen { padding: 60px 20px 20px; height: 100%; }
+    .phone-header { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--dark); margin-bottom: 4px; }
+    .phone-date { font-size: 0.65rem; color: var(--light); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 16px; }
+    .phone-entry { background: var(--gold-pale); border-radius: 12px; padding: 14px; margin-bottom: 10px; }
+    .phone-entry-title { font-size: 0.75rem; font-weight: 500; color: var(--dark); margin-bottom: 4px; }
+    .phone-entry-text { font-size: 0.65rem; color: var(--mid); line-height: 1.5; }
+    .phone-ai-card { background: linear-gradient(135deg, #F5E6C4, #EDD090); border-radius: 12px; padding: 14px; margin-top: 12px; }
+    .phone-ai-label { font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .phone-ai-text { font-size: 0.68rem; color: var(--mid); line-height: 1.5; font-style: italic; }
+    .phone-streak { display: flex; gap: 6px; margin-top: 12px; }
+    .streak-dot { width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; }
+    .streak-active { background: var(--gold); color: white; }
+    .streak-done   { background: var(--gold-pale); color: var(--gold); }
+    .streak-empty  { background: rgba(92,80,64,0.08); color: var(--light); }
+
+    /* FEATURES */
+    section { padding: 100px 48px; }
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 0 48px; }
+    .section-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.15; color: var(--dark); margin-bottom: 60px; }
+
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 40px; }
+    .feature { }
+    .feature-icon { font-size: 1.8rem; margin-bottom: 16px; }
+    .feature h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+    .feature p { font-size: 0.88rem; color: var(--mid); line-height: 1.65; }
+
+    /* PRIVACY CALLOUT */
+    .privacy-box { background: var(--warm-white); border: 1px solid var(--border); border-radius: 4px; padding: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .privacy-box h2 { margin-bottom: 20px; }
+    .privacy-box p { font-size: 0.95rem; color: var(--mid); line-height: 1.75; }
+    .privacy-list { list-style: none; margin-top: 24px; display: flex; flex-direction: column; gap: 12px; }
+    .privacy-list li { font-size: 0.88rem; color: var(--mid); display: flex; gap: 10px; align-items: flex-start; }
+    .privacy-list li::before { content: '✓'; color: var(--gold); font-weight: 500; flex-shrink: 0; }
+    .privacy-visual { font-family: 'Cormorant Garamond', serif; font-size: 8rem; font-weight: 300; color: var(--gold-pale); text-align: center; line-height: 1; }
+
+    /* FOOTER */
+    footer { padding: 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--dark); text-decoration: none; }
+    .footer-logo span { color: var(--gold); }
+    footer p { font-size: 0.78rem; color: var(--light); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 0.78rem; color: var(--light); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+    .hero-eyebrow { animation: fadeUp 0.6s ease both; }
+    h1 { animation: fadeUp 0.6s 0.1s ease both; }
+    .hero-sub { animation: fadeUp 0.6s 0.2s ease both; }
+    .hero-buttons { animation: fadeUp 0.6s 0.3s ease both; }
+    .phone-wrap { animation: fadeUp 0.8s 0.2s ease both; }
+
+    @media (max-width: 768px) {
+      .hero { grid-template-columns: 1fr; gap: 48px; padding: 100px 24px 60px; }
+      .phone-wrap { display: none; }
+      section { padding: 72px 24px; }
+      .divider { margin: 0 24px; }
+      nav { padding: 16px 24px; }
+      nav ul { gap: 20px; }
+      .privacy-box { grid-template-columns: 1fr; padding: 40px 28px; }
+      .privacy-visual { display: none; }
+      footer { padding: 36px 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo">ai<span>jj</span></a>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+    <li><a href="/support">Support</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div>
+    <div class="hero-eyebrow">AI Journal · On-device · Private</div>
+    <h1>Your diary<br>that <em>understands</em><br>you</h1>
+    <p class="hero-sub">
+      Ponder is a private journal powered by on-device AI.
+      Write freely — it tracks your mood, surfaces patterns,
+      and helps you reflect. No cloud. No accounts. No surveillance.
+    </p>
+    <div class="hero-buttons">
+      <a href="#" class="btn btn-gold">App Store — Coming Soon</a>
+    </div>
+    <p class="hero-note">Also coming to Google Play · Free to try</p>
+  </div>
+  <div class="phone-wrap">
+    <div class="phone">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="phone-header">Ponder</div>
+        <div class="phone-date">Thursday, March 2026</div>
+        <div class="phone-entry">
+          <div class="phone-entry-title">Morning thoughts</div>
+          <div class="phone-entry-text">Woke up feeling surprisingly calm. The project is getting closer...</div>
+        </div>
+        <div class="phone-ai-card">
+          <div class="phone-ai-label">✦ AI Insight</div>
+          <div class="phone-ai-text">"You've been more hopeful this week. Your language around work shifted from 'pressure' to 'progress.'"</div>
+        </div>
+        <div class="phone-streak">
+          <div class="streak-dot streak-done">M</div>
+          <div class="streak-dot streak-done">T</div>
+          <div class="streak-dot streak-done">W</div>
+          <div class="streak-dot streak-active">T</div>
+          <div class="streak-dot streak-empty">F</div>
+          <div class="streak-dot streak-empty">S</div>
+          <div class="streak-dot streak-empty">S</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="section-label">Features</div>
+  <h2>Everything you need<br>to know yourself better</h2>
+  <div class="features-grid">
+    <div class="feature">
+      <div class="feature-icon">🧠</div>
+      <h3>On-device AI analysis</h3>
+      <p>Phi-3.5-mini runs entirely on your iPhone. Your entries are analyzed locally — nothing is sent to any server.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📊</div>
+      <h3>Mood tracking & insights</h3>
+      <p>See your emotional patterns over time. Mood breakdowns, score timelines, and weekly summaries all built in.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔥</div>
+      <h3>Streak calendar</h3>
+      <p>Build the habit of daily reflection. Visual streak tracking keeps you coming back — without gamification tricks.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">📸</div>
+      <h3>Photo journaling</h3>
+      <p>Attach photos to entries. Vision AI reads and incorporates your images into context — all on-device.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">✍️</div>
+      <h3>AI writing prompts</h3>
+      <p>Stuck staring at a blank page? Ponder suggests thoughtful prompts tailored to your mood and recent entries.</p>
+    </div>
+    <div class="feature">
+      <div class="feature-icon">🔔</div>
+      <h3>Custom reminders</h3>
+      <p>Morning check-in or evening reflection — set your own reminder time. Face ID protects your private thoughts.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="privacy-box">
+    <div>
+      <div class="section-label">Privacy</div>
+      <h2>Your thoughts<br>never leave<br>your device</h2>
+      <p>We built Ponder because we believe a journal should be private — not a data source for advertising algorithms.</p>
+      <ul class="privacy-list">
+        <li>No account required to use the app</li>
+        <li>All AI processing happens on your iPhone</li>
+        <li>No analytics or tracking SDKs</li>
+        <li>Data stored only in encrypted local storage</li>
+        <li>We have no servers that store your entries</li>
+      </ul>
+    </div>
+    <div class="privacy-visual">🔒</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<footer>
+  <a href="/" class="footer-logo">ai<span>jj</span></a>
+  <p>© 2025 AIJJ LLC · Wyoming, USA</p>
+  <div class="footer-links">
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/support">Support</a>
+    <a href="/cdn-cgi/l/email-protection#c9babcb9b9a6bbbd89a8a0a3a3e7aaa6a4"><span class="__cf_
