@@ -1,7 +1,10 @@
 {
   "rewrites": [
-    { "source": "/ponder",  "destination": "/ponder.html"  },
+    { "source": "/about",   "destination": "/about.html"   },
+    { "source": "/blog",    "destination": "/blog.html"    },
+    { "source": "/terms",   "destination": "/terms.html"   },
     { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/support", "destination": "/support.html" }
+    { "source": "/support", "destination": "/support.html" },
+    { "source": "/ponder",  "destination": "/ponder.html"  }
   ]
 }

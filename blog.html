@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog — AIJJ LLC</title>
+  <meta name="description" content="Thoughts on privacy-first AI, on-device computing, and building focused tools for people who care about their data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --cream: #F7F3EC; --warm-white: #FDFAF5; --gold: #C9973A; --gold-light: #E8C068; --gold-pale: #F5E6C4; --dark: #1A1610; --mid: #5C5040; --light: #9C8A72; --border: rgba(201,151,58,0.2); }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--dark); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.5; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; background: rgba(247,243,236,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--dark); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    nav ul { list-style: none; display: flex; gap: 36px; align-items: center; }
+    nav a { text-decoration: none; color: var(--mid); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--gold); }
+
+    /* HERO */
+    .page-hero { padding: 160px 48px 80px; max-width: 760px; }
+    .page-label { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .page-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.08; letter-spacing: -0.02em; color: var(--dark); margin-bottom: 20px; }
+    h1 em { font-style: italic; color: var(--gold); }
+    .page-sub { font-size: 1rem; color: var(--mid); max-width: 480px; line-height: 1.75; }
+
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 0 48px; }
+
+    /* ARTICLE LIST */
+    .articles { padding: 80px 48px; }
+    .article-card { display: grid; grid-template-columns: 1fr 200px; gap: 48px; align-items: start; padding: 48px 0; border-bottom: 1px solid var(--border); cursor: pointer; transition: all 0.2s; }
+    .article-card:first-child { padding-top: 0; }
+    .article-card:last-child { border-bottom: none; }
+    .article-card:hover .article-title { color: var(--gold); }
+    .article-tag { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+    .article-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 400; color: var(--dark); line-height: 1.2; margin-bottom: 16px; transition: color 0.2s; }
+    .article-excerpt { font-size: 0.9rem; color: var(--mid); line-height: 1.75; margin-bottom: 20px; }
+    .article-meta { font-size: 0.78rem; color: var(--light); }
+    .article-read { font-size: 0.78rem; color: var(--gold); letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .article-num { font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 300; color: var(--gold-pale); line-height: 1; text-align: right; padding-top: 8px; }
+
+    /* ARTICLE CONTENT (shown/hidden) */
+    .article-body { display: none; grid-column: 1 / -1; padding: 40px; background: var(--warm-white); border: 1px solid var(--border); border-radius: 4px; margin-top: 8px; }
+    .article-body.open { display: block; }
+    .article-body h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--dark); margin: 32px 0 12px; }
+    .article-body h3:first-child { margin-top: 0; }
+    .article-body p { font-size: 0.92rem; color: var(--mid); line-height: 1.8; margin-bottom: 16px; }
+    .article-body p:last-child { margin-bottom: 0; }
+    .article-body blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--dark); border-left: 3px solid var(--gold); padding-left: 24px; margin: 24px 0; }
+    .close-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--light); letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; margin-top: 24px; transition: color 0.2s; background: none; border: none; padding: 0; font-family: 'DM Sans', sans-serif; }
+    .close-btn:hover { color: var(--gold); }
+
+    footer { padding: 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--dark); text-decoration: none; }
+    .footer-logo span { color: var(--gold); }
+    footer p { font-size: 0.78rem; color: var(--light); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 0.78rem; color: var(--light); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+
+    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+    .page-label { animation: fadeUp 0.6s ease both; }
+    h1 { animation: fadeUp 0.6s 0.1s ease both; }
+    .page-sub { animation: fadeUp 0.6s 0.2s ease both; }
+
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; } nav ul { gap: 20px; }
+      .page-hero { padding: 120px 24px 60px; }
+      .articles { padding: 60px 24px; }
+      .divider { margin: 0 24px; }
+      .article-card { grid-template-columns: 1fr; gap: 0; }
+      .article-num { display: none; }
+      footer { padding: 36px 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">ai<span>jj</span></a>
+  <ul>
+    <li><a href="/#apps">Apps</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/blog" class="active">Blog</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+    <li><a href="/support">Support</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-label">AIJJ Blog</div>
+  <h1>Thinking about<br><em>privacy</em>, AI,<br>and craft</h1>
+  <p class="page-sub">Occasional thoughts on why we build the way we build — and what it means to put users first in the age of AI.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="articles">
+
+  <!-- Article 1 -->
+  <div class="article-card" onclick="toggleArticle('a1')">
+    <div>
+      <div class="article-tag">On-Device AI</div>
+      <div class="article-title">Why We Build On-Device AI — And Why It Matters More Than Ever</div>
+      <p class="article-excerpt">Every major AI company wants your data. We made a different choice. Here's why running AI locally on your device isn't just a technical decision — it's a values decision.</p>
+      <div class="article-meta">March 2025 · 5 min read</div>
+    </div>
+    <div class="article-num">01</div>
+    <div class="article-body" id="a1">
+      <h3>The cloud AI bargain</h3>
+      <p>Every time you type a message into a cloud AI app, that text travels to a server somewhere. It gets processed, stored, potentially reviewed, and used to improve the model. You get a useful answer. The company gets your data. That's the implicit bargain — and most people don't realize they've made it.</p>
+      <p>We thought about this a lot when we started building AIJJ. The apps we wanted to make — tools for writing, thinking, working — would handle sensitive content. Resumes. Emails. Meeting notes. Personal reflections. The kind of content people wouldn't want floating around in a data center.</p>
+      <blockquote>"The best feature we could ship was never sending your data anywhere in the first place."</blockquote>
+      <h3>On-device AI is no longer a compromise</h3>
+      <p>For years, on-device AI meant accepting worse results. The models that fit on a phone were too small to be genuinely useful. That changed in 2024 and accelerated into 2025. Models like Gemma 3 and Phi-3.5 Mini can now run entirely on a modern smartphone — with results that rival cloud models from just two years ago.</p>
+      <p>For focused, single-purpose tools like ours, the local models are more than good enough. A resume builder doesn't need GPT-4. It needs a model that understands context, follows instructions, and produces clean output. That's now fully achievable on-device.</p>
+      <h3>What this means for you</h3>
+      <p>When you use an AIJJ app, your content never leaves your device. There are no servers receiving your resume drafts. No logs of your email rewrites. No database of your meeting notes. The AI runs in the same place your data lives — your phone. We have no way to see it, and no interest in collecting it.</p>
+      <p>That's not a limitation of our business model. It is our business model. Privacy by architecture, not by policy.</p>
+      <button class="close-btn" onclick="event.stopPropagation(); toggleArticle('a1')">↑ Close article</button>
+    </div>
+  </div>
+
+  <!-- Article 2 -->
+  <div class="article-card" onclick="toggleArticle('a2')">
+    <div>
+      <div class="article-tag">Product Philosophy</div>
+      <div class="article-title">Small Tools Beat All-in-One Apps — Here's the Evidence</div>
+      <p class="article-excerpt">The productivity app market is dominated by giant platforms that try to do everything. We believe the opposite approach — one tool, one job, done well — consistently produces better results for users.</p>
+      <div class="article-meta">March 2025 · 4 min read</div>
+    </div>
+    <div class="article-num">02</div>
+    <div class="article-body" id="a2">
+      <h3>The platform trap</h3>
+      <p>There's a common pattern in productivity software: a tool starts focused, gains users, then adds features until it becomes a platform. Notion, Slack, Microsoft Teams — all began with a clear purpose and grew into ecosystems. That growth often comes at a cost to the original experience.</p>
+      <p>Features compete for attention. The interface grows cluttered. The tool that once helped you focus now demands configuration, maintenance, and onboarding. The thing that saved you time now costs it.</p>
+      <h3>The focused tool advantage</h3>
+      <p>A tool that does one thing can optimize for that one thing completely. The interface can be stripped to essentials. The AI can be tuned for one type of task. The onboarding can be instant. You open it, you use it, you close it.</p>
+      <blockquote>"We don't build platforms. We build precise instruments."</blockquote>
+      <p>This is the philosophy behind AIJJ. Each app we build solves exactly one problem. Resume Builder AI builds resumes. Cover Letter AI writes cover letters. They don't try to do each other's job. They don't come with dashboards, integrations, or notification systems. They open fast, do the work, and get out of your way.</p>
+      <h3>Better for the App Store ecosystem too</h3>
+      <p>There's a practical benefit as well. A focused app can rank for a specific search query in the App Store far more effectively than a Swiss Army knife app. "Resume builder" is a search term with clear intent. An all-in-one productivity suite ranks for nothing in particular.</p>
+      <p>Our matrix approach — building a suite of focused tools under one developer identity — lets each app compete on its own terms, while the AIJJ brand creates trust across the portfolio. It's a different way of thinking about product strategy, and so far, it's the one we believe in.</p>
+      <button class="close-btn" onclick="event.stopPropagation(); toggleArticle('a2')">↑ Close article</button>
+    </div>
+  </div>
+
+  <!-- Article 3 -->
+  <div class="article-card" onclick="toggleArticle('a3')">
+    <div>
+      <div class="article-tag">Privacy</div>
+      <div class="article-title">Privacy-First in 2026: What It Actually Means to Build Without Collecting Data</div>
+      <p class="article-excerpt">"Privacy-first" has become a marketing phrase. We want to explain what it actually means in practice — technically and philosophically — when you build apps that genuinely don't collect user data.</p>
+      <div class="article-meta">March 2025 · 6 min read</div>
+    </div>
+    <div class="article-num">03</div>
+    <div class="article-body" id="a3">
+      <h3>Privacy as marketing vs. privacy as architecture</h3>
+      <p>Almost every app claims to take privacy seriously. Privacy policies run to thousands of words. Cookie consent banners appear on every website. And yet the data collection continues — it's just disclosed now, in documents no one reads.</p>
+      <p>Real privacy doesn't come from policies. It comes from architecture. The only way to truly protect user data is to never collect it in the first place. You can't leak what you don't have. You can't be compelled to hand over what doesn't exist on your servers.</p>
+      <h3>What "on-device" really means</h3>
+      <p>When we say our AI runs on-device, we mean the model weights — the actual intelligence — are downloaded to your phone during installation. When you use the app, your text is processed by software running entirely within your device's CPU and memory. The result is computed locally and displayed to you. Nothing is transmitted.</p>
+      <blockquote>"We have no servers that receive your content. Not because we deleted it — because it was never sent."</blockquote>
+      <p>This is architecturally different from a privacy policy that says "we don't sell your data." A company can commit to not selling data and still collect it, store it, analyze it internally, and expose it in a breach. We eliminate that entire risk surface by design.</p>
+      <h3>The trade-offs we accept</h3>
+      <p>This approach requires trade-offs. On-device models are smaller than the best cloud models. They don't improve from user interactions the way cloud models do. We can't offer cross-device sync without building our own sync infrastructure (which we've chosen not to do).</p>
+      <p>We think these are the right trade-offs. The apps we build are tools, not platforms. They produce output you use elsewhere — a resume you send, an email you revise, a summary you share. The quality of that output needs to be good, not perfect. And for the tasks our apps handle, on-device AI in 2025 is genuinely good.</p>
+      <h3>Why this matters more in 2026</h3>
+      <p>AI has made the data collection problem significantly worse. Every interaction with a cloud AI is a detailed behavioral record. Your questions reveal your anxieties, your work, your relationships, your plans. That's a rich dataset for advertisers, insurers, employers, and governments — whether or not anyone intends it to be used that way.</p>
+      <p>Building AI that runs locally is one of the few ways to offer genuine AI assistance without participating in mass behavioral surveillance. We think it's worth the engineering complexity. And we think users increasingly agree.</p>
+      <button class="close-btn" onclick="event.stopPropagation(); toggleArticle('a3')">↑ Close article</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <a href="/" class="footer-logo">ai<span>jj</span></a>
+  <p>© 2025 AIJJ LLC · Wyoming, USA</p>
+  <div class="footer-links">
+    <a href="/about">About</a>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/support">Support</a>
+  </div>
+</footer>
+
+<script>
+  function toggleArticle(id) {
+    const body = document.getElementById(id);
+    body.classList.toggle('open');
+  }
+</script>
+</body>
+</html>

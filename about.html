@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About — AIJJ LLC</title>
+  <meta name="description" content="AIJJ LLC builds privacy-first AI productivity apps distributed globally through the App Store and Google Play.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --cream: #F7F3EC; --warm-white: #FDFAF5; --gold: #C9973A; --gold-light: #E8C068; --gold-pale: #F5E6C4; --dark: #1A1610; --mid: #5C5040; --light: #9C8A72; --border: rgba(201,151,58,0.2); }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--dark); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.7; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.5; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; background: rgba(247,243,236,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--dark); text-decoration: none; }
+    .nav-logo span { color: var(--gold); }
+    nav ul { list-style: none; display: flex; gap: 36px; align-items: center; }
+    nav a { text-decoration: none; color: var(--mid); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
+    nav a:hover, nav a.active { color: var(--gold); }
+    .page-hero { padding: 160px 48px 80px; max-width: 900px; }
+    .page-label { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+    .page-label::before { content: ''; display: block; width: 28px; height: 1px; background: var(--gold); }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 300; line-height: 1.08; letter-spacing: -0.02em; color: var(--dark); margin-bottom: 28px; }
+    h1 em { font-style: italic; color: var(--gold); }
+    .page-sub { font-size: 1.05rem; color: var(--mid); max-width: 560px; line-height: 1.75; }
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 0 48px; }
+    section { padding: 80px 48px; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; line-height: 1.15; color: var(--dark); margin-bottom: 32px; }
+    .section-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    p { font-size: 0.95rem; color: var(--mid); line-height: 1.8; margin-bottom: 20px; }
+    p:last-child { margin-bottom: 0; }
+    .mission-box { background: var(--warm-white); border: 1px solid var(--border); border-radius: 4px; padding: 56px; }
+    .mission-box blockquote { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 300; font-style: italic; color: var(--dark); line-height: 1.5; border-left: 3px solid var(--gold); padding-left: 32px; margin-bottom: 24px; }
+    .facts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 2px; margin-top: 48px; }
+    .fact { background: var(--warm-white); border: 1px solid var(--border); padding: 36px 32px; }
+    .fact-number { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+    .fact-label { font-size: 0.82rem; color: var(--mid); }
+    .model-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+    .model-item { background: var(--warm-white); border: 1px solid var(--border); padding: 40px; }
+    .model-item h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; color: var(--dark); margin-bottom: 12px; }
+    .model-item p { font-size: 0.88rem; color: var(--mid); line-height: 1.7; margin: 0; }
+    .model-icon { font-size: 1.6rem; margin-bottom: 16px; }
+    .info-table { width: 100%; border-collapse: collapse; }
+    .info-table tr { border-bottom: 1px solid var(--border); }
+    .info-table tr:last-child { border-bottom: none; }
+    .info-table td { padding: 18px 0; font-size: 0.9rem; }
+    .info-table td:first-child { color: var(--light); width: 220px; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .info-table td:last-child { color: var(--dark); font-weight: 400; }
+    .cta-box { background: linear-gradient(135deg, var(--gold-pale), #EDD090); border-radius: 4px; padding: 56px; display: flex; justify-content: space-between; align-items: center; gap: 32px; flex-wrap: wrap; }
+    .cta-box h2 { margin-bottom: 8px; }
+    .cta-box p { font-size: 0.9rem; color: var(--mid); margin: 0; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 4px; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: all 0.25s; font-family: 'DM Sans', sans-serif; white-space: nowrap; }
+    .btn-dark { background: var(--dark); color: white; border: 1px solid var(--dark); }
+    .btn-dark:hover { background: #2d2620; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(26,22,16,0.2); }
+    footer { padding: 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--dark); text-decoration: none; }
+    .footer-logo span { color: var(--gold); }
+    footer p { font-size: 0.78rem; color: var(--light); }
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a { font-size: 0.78rem; color: var(--light); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+    .page-label { animation: fadeUp 0.6s ease both; }
+    h1 { animation: fadeUp 0.6s 0.1s ease both; }
+    .page-sub { animation: fadeUp 0.6s 0.2s ease both; }
+    @media (max-width: 768px) {
+      nav { padding: 16px 24px; } nav ul { gap: 20px; }
+      .page-hero { padding: 120px 24px 60px; }
+      section { padding: 60px 24px; }
+      .divider { margin: 0 24px; }
+      .mission-box { padding: 36px 28px; }
+      .model-grid { grid-template-columns: 1fr; }
+      .cta-box { padding: 40px 28px; }
+      footer { padding: 36px 24px; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="/" class="nav-logo">ai<span>jj</span></a>
+  <ul>
+    <li><a href="/#apps">Apps</a></li>
+    <li><a href="/about" class="active">About</a></li>
+    <li><a href="/blog">Blog</a></li>
+    <li><a href="/privacy">Privacy</a></li>
+    <li><a href="/support">Support</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-label">About AIJJ</div>
+  <h1>We build tools that<br>work <em>for</em> you —<br>not against you</h1>
+  <p class="page-sub">AIJJ LLC is an independent software company developing AI-powered productivity apps for global markets. We believe the best AI is the kind that runs on your device, respects your privacy, and gets out of your way.</p>
+</div>
+
+<div class="divider"></div>
+
+<section>
+  <div class="mission-box">
+    <blockquote>"Small, focused tools powered by on-device AI — built for people who value privacy, clarity, and craft."</blockquote>
+    <p>Most AI apps send your data to the cloud, lock you into bloated platforms, and grow more invasive over time. We build the opposite: lightweight, single-purpose tools where all AI processing runs locally on your device. No servers receive your content. No algorithms profile your behavior. Your data stays yours.</p>
+  </div>
+  <div class="facts-grid">
+    <div class="fact"><div class="fact-number">90+</div><div class="fact-label">AI productivity apps in development</div></div>
+    <div class="fact"><div class="fact-number">7</div><div class="fact-label">Languages supported at launch</div></div>
+    <div class="fact"><div class="fact-number">2</div><div class="fact-label">Platforms — iOS & Android</div></div>
+    <div class="fact"><div class="fact-number">0</div><div class="fact-label">Servers storing your personal data</div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="section-label">Business Model</div>
+  <h2>How we operate</h2>
+  <div class="model-grid">
+    <div class="model-item">
+      <div class="model-icon">📱</div>
+      <h3>Mobile App Distribution</h3>
+      <p>All AIJJ apps are distributed exclusively through the Apple App Store and Google Play Store across all major developed markets worldwide.</p>
+    </div>
+    <div class="model-item">
+      <div class="model-icon">💳</div>
+      <h3>Subscription Revenue</h3>
+      <p>Apps are monetized through in-app subscriptions managed entirely by Apple and Google. All transactions are processed by the platform and disbursed to AIJJ LLC.</p>
+    </div>
+    <div class="model-item">
+      <div class="model-icon">🌍</div>
+      <h3>Global Markets</h3>
+      <p>We target developed markets across North America, Europe, Japan, and South Korea. All apps are fully localized in English, Japanese, Korean, German, French, Spanish, and Portuguese.</p>
+    </div>
+    <div class="model-item">
+      <div class="model-icon">🔒</div>
+      <h3>On-Device AI Architecture</h3>
+      <p>All AI processing runs locally on the user's device using lightweight models optimized for mobile. Zero cloud infrastructure. Zero user data liability. Zero surveillance.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="section-label">Company Information</div>
+  <h2>Legal & registration</h2>
+  <table class="info-table">
+    <tr><td>Legal Name</td><td>AIJJ LLC</td></tr>
+    <tr><td>Entity Type</td><td>Limited Liability Company (LLC)</td></tr>
+    <tr><td>State of Formation</td><td>Wyoming, United States</td></tr>
+    <tr><td>EIN</td><td>32-0844092</td></tr>
+    <tr><td>Website</td><td>aijj.net</td></tr>
+    <tr><td>Business Type</td><td>Mobile Software Development & Distribution</td></tr>
+    <tr><td>Revenue Model</td><td>In-app subscriptions via Apple App Store & Google Play Store</td></tr>
+    <tr><td>Support Email</td><td>support@aijj.net</td></tr>
+  </table>
+</section>
+
+<div class="divider"></div>
+
+<section>
+  <div class="cta-box">
+    <div>
+      <h2>Get in touch</h2>
+      <p>Questions about our company, apps, or partnership inquiries.</p>
+    </div>
+    <a href="/support" class="btn btn-dark">Contact Support →</a>
+  </div>
+</section>
+
+<footer>
+  <a href="/" class="footer-logo">ai<span>jj</span></a>
+  <p>© 2025 AIJJ LLC · Wyoming, USA</p>
+  <div class="footer-links">
+    <a href="/about">About</a>
+    <a href="/blog">Blog</a>
+    <a href="/privacy">Privacy Policy</a>
+    <a href="/support">Support</a>
+  </div>
+</footer>
+</body>
+</html>

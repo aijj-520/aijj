@@ -3,398 +3,80 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>aijj — Thoughtful AI Apps</title>
-  <meta name="description" content="We build thoughtful AI-powered apps for people who value privacy, clarity, and craft.">
+  <title>AIJJ — Privacy-First AI Apps</title>
+  <meta name="description" content="AIJJ LLC builds small, focused AI-powered productivity apps. On-device AI. No cloud. No data collection. Available on iOS and Android worldwide.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
-      --cream: #F7F3EC;
-      --warm-white: #FDFAF5;
-      --gold: #C9973A;
-      --gold-light: #E8C068;
-      --gold-pale: #F5E6C4;
-      --dark: #1A1610;
-      --mid: #5C5040;
-      --light: #9C8A72;
+      --cream: #F7F3EC; --warm-white: #FDFAF5; --gold: #C9973A;
+      --gold-light: #E8C068; --gold-pale: #F5E6C4;
+      --dark: #1A1610; --mid: #5C5040; --light: #9C8A72;
       --border: rgba(201,151,58,0.2);
     }
-
     html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--cream);
-      color: var(--dark);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* ── NOISE TEXTURE OVERLAY ── */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 1000;
-      opacity: 0.5;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 20px 48px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(247,243,236,0.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.6rem;
-      font-weight: 600;
-      color: var(--dark);
-      letter-spacing: 0.02em;
-      text-decoration: none;
-    }
-
+    body { background: var(--cream); color: var(--dark); font-family: 'DM Sans', sans-serif; font-weight: 300; line-height: 1.6; overflow-x: hidden; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.5; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 20px 48px; display: flex; justify-content: space-between; align-items: center; background: rgba(247,243,236,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--dark); letter-spacing: 0.02em; text-decoration: none; }
     .nav-logo span { color: var(--gold); }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 36px;
-      align-items: center;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: var(--mid);
-      font-size: 0.85rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: color 0.2s;
-    }
-
+    nav ul { list-style: none; display: flex; gap: 32px; align-items: center; }
+    nav a { text-decoration: none; color: var(--mid); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
     nav a:hover { color: var(--gold); }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 120px 48px 80px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-bg-circle {
-      position: absolute;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(232,192,104,0.15) 0%, transparent 70%);
-      top: -100px;
-      right: -100px;
-      pointer-events: none;
-    }
-
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 32px;
-      height: 1px;
-      background: var(--gold);
-    }
-
-    h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.2rem, 7vw, 6.5rem);
-      font-weight: 300;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      color: var(--dark);
-      max-width: 780px;
-      margin-bottom: 32px;
-    }
-
-    h1 em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    .hero-sub {
-      font-size: 1.05rem;
-      color: var(--mid);
-      max-width: 480px;
-      line-height: 1.7;
-      margin-bottom: 48px;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 28px;
-      border-radius: 4px;
-      text-decoration: none;
-      font-size: 0.85rem;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      transition: all 0.25s;
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    .btn-gold {
-      background: var(--gold);
-      color: white;
-      border: 1px solid var(--gold);
-    }
-
-    .btn-gold:hover {
-      background: #b8862e;
-      transform: translateY(-1px);
-      box-shadow: 0 8px 24px rgba(201,151,58,0.3);
-    }
-
-    .btn-outline {
-      border: 1px solid var(--border);
-      color: var(--mid);
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      border-color: var(--gold);
-      color: var(--gold);
-    }
-
+    .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 120px 48px 80px; position: relative; overflow: hidden; }
+    .hero-bg-circle { position: absolute; width: 600px; height: 600px; border-radius: 50%; background: radial-gradient(circle, rgba(232,192,104,0.15) 0%, transparent 70%); top: -100px; right: -100px; pointer-events: none; }
+    .hero-eyebrow { font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; display: flex; align-items: center; gap: 12px; }
+    .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
+    h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(3.2rem, 7vw, 6.5rem); font-weight: 300; line-height: 1.05; letter-spacing: -0.02em; color: var(--dark); max-width: 780px; margin-bottom: 32px; }
+    h1 em { font-style: italic; color: var(--gold); }
+    .hero-sub { font-size: 1.05rem; color: var(--mid); max-width: 480px; line-height: 1.7; margin-bottom: 48px; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 4px; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: all 0.25s; font-family: 'DM Sans', sans-serif; }
+    .btn-gold { background: var(--gold); color: white; border: 1px solid var(--gold); }
+    .btn-gold:hover { background: #b8862e; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(201,151,58,0.3); }
+    .btn-outline { border: 1px solid var(--border); color: var(--mid); background: transparent; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
     .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
-
-    /* ── DIVIDER ── */
-    .divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, var(--border), transparent);
-      margin: 0 48px;
-    }
-
-    /* ── APPS SECTION ── */
-    section {
-      padding: 100px 48px;
-    }
-
-    .section-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-
-    h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 300;
-      line-height: 1.15;
-      color: var(--dark);
-      margin-bottom: 60px;
-    }
-
-    /* ── APP CARD ── */
-    .apps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 2px;
-    }
-
-    .app-card {
-      background: var(--warm-white);
-      padding: 48px 40px;
-      border: 1px solid var(--border);
-      position: relative;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-
-    .app-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 20px 48px rgba(26,22,16,0.08);
-      z-index: 1;
-    }
-
-    .app-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--gold-light), var(--gold));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s;
-    }
-
+    .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 0 48px; }
+    section { padding: 100px 48px; }
+    .section-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.15; color: var(--dark); margin-bottom: 60px; }
+    .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2px; }
+    .app-card { background: var(--warm-white); padding: 48px 40px; border: 1px solid var(--border); position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+    .app-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(26,22,16,0.08); z-index: 1; }
+    .app-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold-light), var(--gold)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
     .app-card:hover::before { transform: scaleX(1); }
-
-    .app-icon {
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
-      margin-bottom: 24px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-    }
-
-    .app-icon-ponder { background: linear-gradient(135deg, #F5E6C4, #E8C068); }
-    .app-icon-voice  { background: linear-gradient(135deg, #E8D5C4, #D4956A); }
-    .app-icon-coming { background: linear-gradient(135deg, #E8E8E4, #C8C8C0); }
-
-    .app-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--dark);
-      margin-bottom: 8px;
-    }
-
-    .app-tag {
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-
-    .app-desc {
-      font-size: 0.9rem;
-      color: var(--mid);
-      line-height: 1.65;
-      margin-bottom: 28px;
-    }
-
-    .app-status {
-      display: inline-block;
-      font-size: 0.7rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 5px 12px;
-      border-radius: 20px;
-    }
-
-    .status-live { background: rgba(201,151,58,0.12); color: var(--gold); }
-    .status-soon { background: rgba(92,80,64,0.08); color: var(--light); }
+    .app-icon { width: 56px; height: 56px; border-radius: 14px; margin-bottom: 24px; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; }
+    .app-icon-diary   { background: linear-gradient(135deg, #F5E6C4, #E8C068); }
+    .app-icon-resume  { background: linear-gradient(135deg, #DBEAFE, #93C5FD); }
+    .app-icon-email   { background: linear-gradient(135deg, #DCFCE7, #86EFAC); }
+    .app-icon-coming  { background: linear-gradient(135deg, #E8E8E4, #C8C8C0); }
+    .app-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--dark); margin-bottom: 8px; }
+    .app-tag { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+    .app-desc { font-size: 0.9rem; color: var(--mid); line-height: 1.65; margin-bottom: 28px; }
+    .app-status { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; }
     .status-dev  { background: rgba(232,192,104,0.15); color: #b8862e; }
-
-    /* ── PRINCIPLES ── */
+    .status-soon { background: rgba(92,80,64,0.08); color: var(--light); }
     .principles { background: var(--warm-white); }
-
-    .principles-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 48px;
-    }
-
-    .principle h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--dark);
-      margin-bottom: 10px;
-    }
-
-    .principle p {
-      font-size: 0.88rem;
-      color: var(--mid);
-      line-height: 1.7;
-    }
-
-    .principle-num {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2.5rem;
-      font-weight: 300;
-      color: var(--gold-pale);
-      line-height: 1;
-      margin-bottom: 12px;
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      padding: 48px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: gap;
-      gap: 20px;
-    }
-
-    .footer-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--dark);
-      text-decoration: none;
-    }
-
+    .principles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 48px; }
+    .principle h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--dark); margin-bottom: 10px; }
+    .principle p { font-size: 0.88rem; color: var(--mid); line-height: 1.7; }
+    .principle-num { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; color: var(--gold-pale); line-height: 1; margin-bottom: 12px; }
+    footer { padding: 48px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px; }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--dark); text-decoration: none; }
     .footer-logo span { color: var(--gold); }
-
-    footer p {
-      font-size: 0.78rem;
-      color: var(--light);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-    }
-
-    .footer-links a {
-      font-size: 0.78rem;
-      color: var(--light);
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      transition: color 0.2s;
-    }
-
+    footer p { font-size: 0.78rem; color: var(--light); }
+    .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.78rem; color: var(--light); text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
     .footer-links a:hover { color: var(--gold); }
-
-    /* ── ANIMATIONS ── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
     .hero-eyebrow { animation: fadeUp 0.6s ease both; }
-    h1            { animation: fadeUp 0.6s 0.1s ease both; }
-    .hero-sub     { animation: fadeUp 0.6s 0.2s ease both; }
-    .hero-buttons { animation: fadeUp 0.6s 0.3s ease both; }
-
-    /* ── MOBILE ── */
+    h1             { animation: fadeUp 0.6s 0.1s ease both; }
+    .hero-sub      { animation: fadeUp 0.6s 0.2s ease both; }
+    .hero-buttons  { animation: fadeUp 0.6s 0.3s ease both; }
     @media (max-width: 640px) {
-      nav { padding: 16px 24px; }
-      nav ul { gap: 20px; }
+      nav { padding: 16px 24px; } nav ul { gap: 16px; }
       .hero, section { padding-left: 24px; padding-right: 24px; }
       .divider { margin: 0 24px; }
       footer { padding: 36px 24px; flex-direction: column; align-items: flex-start; }
@@ -404,154 +86,126 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="/" class="nav-logo">ai<span>jj</span></a>
   <ul>
     <li><a href="#apps">Apps</a></li>
-    <li><a href="/ponder">Ponder</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/blog">Blog</a></li>
     <li><a href="/privacy">Privacy</a></li>
     <li><a href="/support">Support</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-bg-circle"></div>
   <div class="hero-eyebrow">Independent · Privacy-first · AI-powered</div>
   <h1>Apps that think<br>alongside <em>you</em></h1>
   <p class="hero-sub">
     We build small, focused apps powered by on-device AI —
-    no servers, no data harvesting, no subscriptions to surveillance.
-    Just tools that respect your privacy and sharpen your thinking.
+    no servers, no data harvesting, no surveillance.
+    Tools that respect your privacy and sharpen your work.
   </p>
   <div class="hero-buttons">
     <a href="#apps" class="btn btn-gold">Explore Apps</a>
-    <a href="/support" class="btn btn-outline">Contact</a>
+    <a href="/about" class="btn btn-outline">About Us</a>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- APPS -->
 <section id="apps">
   <div class="section-label">Our Apps</div>
   <h2>Thoughtful tools,<br>built with intent</h2>
 
   <div class="apps-grid">
-
     <div class="app-card">
-      <div class="app-icon app-icon-ponder">📓</div>
-      <div class="app-name">Ponder</div>
-      <div class="app-tag">AI Journal</div>
-      <p class="app-desc">
-        A private diary that reads between the lines.
-        Write freely — Ponder's on-device AI surfaces your emotional patterns,
-        tracks your streaks, and gently prompts reflection.
-        Everything stays on your device.
-      </p>
-      <a href="/ponder" class="app-status status-dev">Coming to App Store</a>
+      <div class="app-icon app-icon-diary">📓</div>
+      <div class="app-name">AIJJ Diary</div>
+      <div class="app-tag">AI Journal · Private</div>
+      <p class="app-desc">A private diary powered by on-device AI. Write freely — your emotions, patterns, and reflections stay on your device. No cloud. No accounts. No surveillance.</p>
+      <span class="app-status status-dev">In Development</span>
     </div>
-
     <div class="app-card">
-      <div class="app-icon app-icon-voice">🎙️</div>
-      <div class="app-name">Voice Diary AI</div>
-      <div class="app-tag">Voice Journal</div>
-      <p class="app-desc">
-        Speak your thoughts — let AI transcribe and analyze.
-        For the days when typing feels like too much.
-        Your voice, your mood, your story.
-      </p>
-      <span class="app-status status-soon">In Development</span>
-    </div>
-
-    <div class="app-card">
-      <div class="app-icon app-icon-coming">📊</div>
-      <div class="app-name">AI Expense Tracker</div>
-      <div class="app-tag">Finance · Vision AI</div>
-      <p class="app-desc">
-        Snap a receipt and it's logged. On-device vision reads,
-        categorizes, and tracks your spending — no cloud,
-        no bank connections required.
-      </p>
+      <div class="app-icon app-icon-resume">📄</div>
+      <div class="app-name">Resume Builder AI</div>
+      <div class="app-tag">Job Tools · Productivity</div>
+      <p class="app-desc">Generate complete, professional resumes from your work history in seconds. On-device AI. Your career data never leaves your phone.</p>
       <span class="app-status status-soon">Coming Soon</span>
     </div>
-
+    <div class="app-card">
+      <div class="app-icon app-icon-email">✉️</div>
+      <div class="app-name">Email Reply AI</div>
+      <div class="app-tag">Office Tools · Communication</div>
+      <p class="app-desc">Draft professional email replies instantly. Paste any email, get a polished response. On-device AI handles your correspondence privately.</p>
+      <span class="app-status status-soon">Coming Soon</span>
+    </div>
+    <div class="app-card">
+      <div class="app-icon app-icon-coming">🎙️</div>
+      <div class="app-name">Meeting Notes AI</div>
+      <div class="app-tag">Office Tools · Productivity</div>
+      <p class="app-desc">Turn rough meeting notes into structured summaries. Key decisions, action items, and follow-ups — organized automatically, on-device.</p>
+      <span class="app-status status-soon">Coming Soon</span>
+    </div>
     <div class="app-card">
       <div class="app-icon app-icon-coming">📝</div>
-      <div class="app-name">AI Meeting Notes</div>
-      <div class="app-tag">Productivity</div>
-      <p class="app-desc">
-        Record, transcribe, summarize. Your meeting intelligence
-        lives on your device, not in someone's data center.
-      </p>
+      <div class="app-name">Cover Letter AI</div>
+      <div class="app-tag">Job Tools · Writing</div>
+      <p class="app-desc">Write tailored cover letters for every job application. Paste the job description, get a custom letter. Fast, private, on-device.</p>
       <span class="app-status status-soon">Coming Soon</span>
     </div>
-
     <div class="app-card">
-      <div class="app-icon app-icon-coming">✉️</div>
-      <div class="app-name">AI Email Polish</div>
-      <div class="app-tag">Communication</div>
-      <p class="app-desc">
-        Write it rough, send it sharp. AI rewrites your drafts
-        for tone, clarity, and professionalism — all on-device.
-      </p>
-      <span class="app-status status-soon">Coming Soon</span>
+      <div class="app-icon app-icon-coming">✦</div>
+      <div class="app-name">90+ Apps Coming</div>
+      <div class="app-tag">AI Productivity Suite</div>
+      <p class="app-desc">We're building a full matrix of focused AI tools — for job seekers, HR teams, writers, students, and content creators. All on-device. All private.</p>
+      <span class="app-status status-soon">In Development</span>
     </div>
-
-    <div class="app-card">
-      <div class="app-icon app-icon-coming">📄</div>
-      <div class="app-name">AI Contract Review</div>
-      <div class="app-tag">Legal · Privacy</div>
-      <p class="app-desc">
-        Upload a contract. Get plain-language summaries of
-        key clauses, red flags, and obligations.
-        Your documents never leave your device.
-      </p>
-      <span class="app-status status-soon">Coming Soon</span>
-    </div>
-
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- PRINCIPLES -->
 <section class="principles">
   <div class="section-label">Philosophy</div>
   <h2>Why we build<br>the way we build</h2>
-
   <div class="principles-grid">
     <div class="principle">
       <div class="principle-num">01</div>
       <h3>Privacy by default</h3>
-      <p>On-device AI means your data never leaves your phone. No accounts required. No syncing to our servers. Your thoughts are yours.</p>
+      <p>On-device AI means your data never leaves your phone. No accounts required. No syncing to our servers. Your content is yours — permanently.</p>
     </div>
     <div class="principle">
       <div class="principle-num">02</div>
       <h3>One thing, done well</h3>
-      <p>Each app solves a single problem with focus and care. We don't build bloated platforms. We build precise tools.</p>
+      <p>Each app solves a single problem with focus and care. We don't build bloated platforms. We build precise tools that open fast and get out of your way.</p>
     </div>
     <div class="principle">
       <div class="principle-num">03</div>
       <h3>Honest pricing</h3>
-      <p>Premium subscription. No ads, no dark patterns, no freemium traps. You pay once, you get everything.</p>
+      <p>Premium subscription. No ads, no dark patterns, no freemium traps. No data is sold to subsidize free tiers — because we don't collect data to sell.</p>
     </div>
     <div class="principle">
       <div class="principle-num">04</div>
       <h3>Built for global users</h3>
-      <p>Every app ships in English, Japanese, Korean, Portuguese, Spanish, German, and French — for the world's paying markets.</p>
+      <p>Every app ships in 7 languages — English, Japanese, Korean, German, French, Spanish, and Portuguese — for the world's major paying markets.</p>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- FOOTER -->
 <footer>
   <a href="/" class="footer-logo">ai<span>jj</span></a>
   <p>© 2025 AIJJ LLC · Wyoming, USA</p>
   <div class="footer-links">
+    <a href="/about">About</a>
+    <a href="/blog">Blog</a>
     <a href="/privacy">Privacy Policy</a>
+    <a href="/terms">Terms</a>
     <a href="/support">Support</a>
-    <a href="/cdn-cgi/l/email-protection#ef9c9a9f9f809d9baf8e868585c18c8082">Contact</
+  </div>
+</footer>
+
+</body>
+</html>

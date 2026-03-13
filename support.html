@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Support — aijj</title>
-  <meta name="description" content="Get help with aijj apps including Ponder.">
+  <title>Support — AIJJ LLC</title>
+  <meta name="description" content="Get help with any AIJJ app. FAQ, billing, privacy, and contact support.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -17,59 +17,36 @@
     .nav-logo span { color: var(--gold); }
     nav a.back { text-decoration: none; color: var(--mid); font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: color 0.2s; }
     nav a.back:hover { color: var(--gold); }
-
     main { max-width: 780px; margin: 0 auto; padding: 140px 48px 100px; }
     .page-label { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
     h1 { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: var(--dark); margin-bottom: 12px; }
-    .page-sub { font-size: 1rem; color: var(--mid); margin-bottom: 64px; max-width: 480px; }
-
-    /* CONTACT CARD */
-    .contact-card {
-      background: var(--warm-white);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      padding: 48px;
-      margin-bottom: 56px;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 32px;
-      align-items: center;
-    }
+    .page-sub { font-size: 1rem; color: var(--mid); margin-bottom: 64px; max-width: 480px; line-height: 1.75; }
+    .contact-card { background: var(--warm-white); border: 1px solid var(--border); border-radius: 4px; padding: 48px; margin-bottom: 56px; display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center; }
     .contact-card h2 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400; color: var(--dark); margin-bottom: 10px; }
     .contact-card p { font-size: 0.9rem; color: var(--mid); }
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; border-radius: 4px; text-decoration: none; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: all 0.25s; font-family: 'DM Sans', sans-serif; white-space: nowrap; }
     .btn-gold { background: var(--gold); color: white; border: 1px solid var(--gold); }
     .btn-gold:hover { background: #b8862e; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(201,151,58,0.3); }
-
-    /* FAQ */
-    h2.faq-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; color: var(--dark); margin-bottom: 32px; }
-    .faq { display: flex; flex-direction: column; gap: 2px; }
+    .faq-section-title { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--dark); margin: 40px 0 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .faq-section-title:first-of-type { margin-top: 0; }
+    .faq { display: flex; flex-direction: column; gap: 2px; margin-bottom: 16px; }
     .faq-item { background: var(--warm-white); border: 1px solid var(--border); }
     .faq-q { padding: 20px 24px; font-weight: 400; font-size: 0.95rem; color: var(--dark); cursor: pointer; display: flex; justify-content: space-between; align-items: center; user-select: none; }
     .faq-q:hover { color: var(--gold); }
-    .faq-q::after { content: '+'; font-size: 1.2rem; color: var(--gold); font-weight: 300; transition: transform 0.2s; }
+    .faq-q::after { content: '+'; font-size: 1.2rem; color: var(--gold); font-weight: 300; transition: transform 0.2s; flex-shrink: 0; margin-left: 16px; }
     .faq-item.open .faq-q::after { transform: rotate(45deg); }
-    .faq-a { display: none; padding: 0 24px 20px; font-size: 0.88rem; color: var(--mid); line-height: 1.7; }
+    .faq-a { display: none; padding: 0 24px 20px; font-size: 0.88rem; color: var(--mid); line-height: 1.75; }
     .faq-item.open .faq-a { display: block; }
-
-    .response-note { margin-top: 40px; padding: 20px 24px; border-left: 2px solid var(--gold-pale); }
+    .response-note { margin-top: 48px; padding: 20px 24px; border-left: 2px solid var(--gold-pale); }
     .response-note p { font-size: 0.85rem; color: var(--light); }
-
     footer { border-top: 1px solid var(--border); padding: 36px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
     .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--dark); text-decoration: none; }
     .footer-logo span { color: var(--gold); }
     footer p { font-size: 0.76rem; color: var(--light); }
-
-    @media (max-width: 640px) {
-      nav { padding: 16px 24px; }
-      main { padding: 100px 24px 60px; }
-      .contact-card { grid-template-columns: 1fr; padding: 32px 24px; }
-      footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; }
-    }
+    @media (max-width: 640px) { nav { padding: 16px 24px; } main { padding: 100px 24px 60px; } .contact-card { grid-template-columns: 1fr; padding: 32px 24px; } footer { padding: 28px 24px; flex-direction: column; align-items: flex-start; } }
   </style>
 </head>
 <body>
-
 <nav>
   <a href="/" class="nav-logo">ai<span>jj</span></a>
   <a href="/" class="back">← Back to Home</a>
@@ -78,67 +55,115 @@
 <main>
   <div class="page-label">Support</div>
   <h1>How can we help?</h1>
-  <p class="page-sub">Questions about our apps, subscriptions, or privacy? We're here.</p>
+  <p class="page-sub">Questions about any AIJJ app, subscriptions, privacy, or anything else? We're here.</p>
 
   <div class="contact-card">
     <div>
       <h2>Email Support</h2>
-      <p>For all inquiries including billing, bugs, feature requests, and privacy questions.</p>
+      <p>For all inquiries — billing, bugs, feature requests, and privacy questions. We respond within 24–48 hours on business days.</p>
     </div>
-    <a href="/cdn-cgi/l/email-protection#f685838686998482b6979f9c9cd895999b" class="btn btn-gold"><span class="__cf_email__" data-cfemail="45363035352a373105242c2f2f6b262a28">[email&#160;protected]</span></a>
+    <a href="mailto:support@aijj.net" class="btn btn-gold">support@aijj.net</a>
   </div>
 
-  <h2 class="faq-title">Frequently Asked Questions</h2>
-
+  <!-- Privacy & Data -->
+  <div class="faq-section-title">Privacy & Data</div>
   <div class="faq">
-
     <div class="faq-item">
-      <div class="faq-q">Is my journal data private and secure?</div>
-      <div class="faq-a">Yes. All data is stored locally on your device and never transmitted to our servers. We have no servers that receive your journal entries. On-device AI processes your text entirely within your phone.</div>
+      <div class="faq-q">Is my data private and secure?</div>
+      <div class="faq-a">Yes. All data you create in any AIJJ app is stored locally on your device and never transmitted to our servers. We have no servers that receive your content. All AI processing happens entirely on your device — offline and private.</div>
     </div>
-
     <div class="faq-item">
-      <div class="faq-q">Does Ponder require an internet connection?</div>
-      <div class="faq-a">No. Ponder works entirely offline after installation. The AI model runs on your device without needing a network connection. An internet connection is only needed for the initial AI model download on first launch.</div>
+      <div class="faq-q">Do AIJJ apps require an internet connection?</div>
+      <div class="faq-a">No. All AIJJ apps work fully offline after installation. The AI model runs on your device without any network connection. An internet connection is only needed for the initial AI model download on first launch.</div>
     </div>
+    <div class="faq-item">
+      <div class="faq-q">Does AIJJ collect any analytics or usage data?</div>
+      <div class="faq-a">No. Our apps contain no analytics SDKs, advertising trackers, or crash reporting tools that transmit personal data. We do not track how you use our apps. We do not sell data to third parties because we do not collect it.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Where is my data stored?</div>
+      <div class="faq-a">All data — your content, settings, history — is stored locally on your device using iOS or Android secure storage. It is protected by your device passcode, Face ID, or fingerprint. It is permanently deleted when you uninstall the app.</div>
+    </div>
+  </div>
 
+  <!-- Subscriptions & Billing -->
+  <div class="faq-section-title">Subscriptions & Billing</div>
+  <div class="faq">
     <div class="faq-item">
       <div class="faq-q">How do I cancel my subscription?</div>
-      <div class="faq-a">Subscriptions are managed entirely through the App Store (iOS) or Google Play (Android). To cancel: on iPhone, go to Settings → Your Name → Subscriptions, find Ponder, and tap Cancel Subscription. On Android, open Google Play → Menu → Subscriptions.</div>
+      <div class="faq-a">Subscriptions are managed through the App Store or Google Play — not through us. To cancel on iPhone: go to Settings → your Apple ID → Subscriptions → find the AIJJ app → tap Cancel. On Android: open Google Play → tap your profile → Payments & subscriptions → Subscriptions.</div>
     </div>
+    <div class="faq-item">
+      <div class="faq-q">How do I get a refund?</div>
+      <div class="faq-a">Refunds are handled by Apple or Google. For App Store purchases, visit reportaproblem.apple.com. For Google Play, visit the Google Play Help Center. Apple generally offers refunds within 90 days of purchase. If you have trouble, email us and we'll do our best to help.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Why does the price look different in my country?</div>
+      <div class="faq-a">Apple and Google automatically adjust prices for local currencies, taxes (like VAT), and regional purchasing power. The base subscription is set in USD, and the platforms convert this to local pricing. We don't manually set prices per country.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Can I use the same subscription on multiple devices?</div>
+      <div class="faq-a">Yes. As long as you use the same Apple ID or Google account, your subscription is valid across all your devices. Restore purchases from within the app's settings if a new device doesn't recognize your subscription.</div>
+    </div>
+  </div>
 
+  <!-- Using the Apps -->
+  <div class="faq-section-title">Using the Apps</div>
+  <div class="faq">
     <div class="faq-item">
       <div class="faq-q">How do I transfer my data to a new phone?</div>
-      <div class="faq-a">Use iCloud Backup (iOS) or Google Backup (Android) to migrate your data. When you restore from backup on your new device and install Ponder, your entries will be restored along with the rest of your app data.</div>
+      <div class="faq-a">Use iCloud Backup (iOS) or Google Backup (Android) before switching devices. When you restore your new device and reinstall the AIJJ app, your data will be restored as part of the system backup. Make sure backup is enabled before switching.</div>
     </div>
-
     <div class="faq-item">
       <div class="faq-q">What happens if I delete the app?</div>
-      <div class="faq-a">All locally stored data is permanently deleted when you uninstall the app. Since we have no servers, there is no backup on our end. Make sure to use iCloud or Google Backup before uninstalling if you want to keep your data.</div>
+      <div class="faq-a">All locally stored data is permanently deleted when you uninstall the app. Since we have no servers, there is no backup on our end. Use iCloud or Google Backup before uninstalling if you want to preserve your data.</div>
     </div>
-
+    <div class="faq-item">
+      <div class="faq-q">The AI output doesn't look right — what should I do?</div>
+      <div class="faq-a">AI-generated content is a starting point, not a finished product. Try rephrasing your input with more specific details. If the output is consistently poor, please email us with a description of what you entered and what you expected — this helps us improve our prompts.</div>
+    </div>
     <div class="faq-item">
       <div class="faq-q">I found a bug — how do I report it?</div>
-      <div class="faq-a">Please email <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="aedddbdedec1dcdaeecfc7c4c480cdc1c3">[email&#160;protected]</a> with a description of the issue, your device model, iOS/Android version, and steps to reproduce the problem if possible. We aim to fix critical bugs within 48 hours.</div>
+      <div class="faq-a">Please email support@aijj.net with: the app name and version, your device model and OS version, a description of the bug, and steps to reproduce it if possible. We aim to fix critical bugs within 48 hours.</div>
     </div>
-
     <div class="faq-item">
-      <div class="faq-q">Is there a refund policy?</div>
-      <div class="faq-a">Refunds are handled by Apple or Google through their respective platforms. Apple generally offers refunds within 90 days of purchase — visit reportaproblem.apple.com. For Google Play, visit the Play Store help center.</div>
+      <div class="faq-q">Can I request a new feature?</div>
+      <div class="faq-a">Yes — we read every feature request. Email support@aijj.net with your idea. We can't promise every feature will be built, but popular requests do influence our roadmap.</div>
     </div>
+  </div>
 
+  <!-- AI Content -->
+  <div class="faq-section-title">AI-Generated Content</div>
+  <div class="faq">
+    <div class="faq-item">
+      <div class="faq-q">Can I use AI-generated content for professional purposes?</div>
+      <div class="faq-a">Yes. Our apps are designed for professional use cases like resumes, emails, and business writing. Always review and edit AI output before submitting professionally — AI can make errors, and you are responsible for the final content you send.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Is AI-generated content copyrighted?</div>
+      <div class="faq-a">The legal status of AI-generated content varies by jurisdiction and is still evolving. Generally, content you generate using our apps is yours to use. We recommend adding original thought and editing to any AI output you intend to publish or submit.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What AI model do the apps use?</div>
+      <div class="faq-a">Our apps use lightweight AI models optimized to run locally on mobile devices. The specific model may vary by app and platform. All models run entirely on your device — no data is sent to any AI provider's servers.</div>
+    </div>
   </div>
 
   <div class="response-note">
-    <p>We typically respond within 24–48 hours on business days. For urgent issues, please include "URGENT" in your email subject line.</p>
+    <p>We typically respond within 24–48 hours on business days. For urgent issues, please include "URGENT" in your subject line. For all inquiries: <strong>support@aijj.net</strong></p>
   </div>
 </main>
 
 <footer>
   <a href="/" class="footer-logo">ai<span>jj</span></a>
   <p>© 2025 AIJJ LLC · Wyoming, USA</p>
-  <p><a href="/privacy" style="color:var(--light);text-decoration:none;">Privacy Policy</a></p>
+  <p><a href="/privacy" style="color:var(--light);text-decoration:none;">Privacy Policy</a> · <a href="/terms" style="color:var(--light);text-decoration:none;">Terms</a></p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  do
+<script>
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => q.parentElement.classList.toggle('open'));
+  });
+</script>
+</body>
+</html>
