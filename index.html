@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AIJJ — Privacy-First Productivity Apps</title>
-  <meta name="description" content="AIJJ LLC builds small, focused productivity apps where everything runs on your device. No cloud. No data harvesting. Available on iOS and Android worldwide.">
+  <meta name="description" content="AIJJ LLC builds small, focused productivity apps where everything runs on your device: Tactworks, Slateroom, Draftmill and more. No cloud, no account, no data harvesting.">
   <link rel="canonical" href="https://aijj.net/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,6 +59,10 @@
     .app-status { display: inline-block; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 5px 12px; border-radius: 20px; }
     .status-dev  { background: rgba(232,192,104,0.15); color: #b8862e; }
     .status-soon { background: rgba(92,80,64,0.08); color: var(--light); }
+    .btn-store { display: inline-block; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 16px; border-radius: 20px; background: var(--dark); color: white; text-decoration: none; transition: background 0.2s; }
+    .btn-store:hover { background: var(--gold); }
+    .apps-note { font-size: 0.92rem; color: var(--mid); margin: -36px 0 40px; max-width: 640px; }
+    .apps-note a { color: var(--gold); text-decoration: none; }
     .principles { background: var(--warm-white); }
     .principles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 48px; }
     .principle h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--dark); margin-bottom: 10px; }
@@ -117,50 +121,86 @@
 
 <section id="apps">
   <div class="section-label">Our Apps</div>
-  <h2>Thoughtful tools,<br>built with intent</h2>
+  <h2>Focused tools,<br>one job each</h2>
 
+  <p class="apps-note">Three apps are live on the App Store, with more on the way. Android versions are coming to Google Play. <a href="https://apps.apple.com/us/developer/aijj-llc/id6806487693" target="_blank" rel="noopener">See all AIJJ apps on the App Store →</a></p>
   <div class="apps-grid">
     <div class="app-card">
-      <div class="app-icon app-icon-diary">📓</div>
-      <div class="app-name">AIJJ Diary</div>
-      <div class="app-tag">Journal · Private</div>
-      <p class="app-desc">A private diary that lives entirely on your phone. Write freely — your emotions, patterns, and reflections stay on your device. No cloud. No accounts. No surveillance.</p>
+      <div class="app-icon" style="background:linear-gradient(135deg, #DBEAFE, #93C5FD)">✉️</div>
+      <div class="app-name">Tactworks</div>
+      <div class="app-tag">Business Emails</div>
+      <p class="app-desc">Cold outreach, sales, reminder and apology emails, each with a clear subject line — ready to edit and send.</p>
+      <a class="btn-store" href="https://apps.apple.com/us/app/tactworks/id6806494617" target="_blank" rel="noopener">Download on the App Store →</a>
+    </div>
+    <div class="app-card">
+      <div class="app-icon" style="background:linear-gradient(135deg, #DCFCE7, #86EFAC)">📚</div>
+      <div class="app-name">Slateroom</div>
+      <div class="app-tag">Lesson Planner</div>
+      <p class="app-desc">Course outlines and timed, five-phase lesson plans for teachers and trainers, for any subject and grade level.</p>
+      <a class="btn-store" href="https://apps.apple.com/us/app/slateroom/id6806487773" target="_blank" rel="noopener">Download on the App Store →</a>
+    </div>
+    <div class="app-card">
+      <div class="app-icon" style="background:linear-gradient(135deg, #FCE7F3, #F9A8D4)">✍️</div>
+      <div class="app-name">Draftmill</div>
+      <div class="app-tag">Blog &amp; Captions</div>
+      <p class="app-desc">Blog outlines, headlines, video titles, captions and hooks — from a topic to something you can post.</p>
+      <a class="btn-store" href="https://apps.apple.com/us/app/draftmill/id6806494596" target="_blank" rel="noopener">Download on the App Store →</a>
+    </div>
+    <div class="app-card">
+      <div class="app-icon" style="background:linear-gradient(135deg, #FFEDD5, #FDBA74)">🛍️</div>
+      <div class="app-name">Shelfsmith</div>
+      <div class="app-tag">Listing Writer</div>
+      <p class="app-desc">Product descriptions, titles, ad copy and button text for your online shop.</p>
+      <span class="app-status status-soon">Coming Soon</span>
+    </div>
+    <div class="app-card">
+      <div class="app-icon" style="background:linear-gradient(135deg, #E2E8F0, #94A3B8)">📄</div>
+      <div class="app-name">Fairhand</div>
+      <div class="app-tag">Resume Writer</div>
+      <p class="app-desc">Resume, cover letter, application email and interview follow-up — written only from the details you enter.</p>
+      <span class="app-status status-soon">Coming Soon</span>
+    </div>
+    <div class="app-card">
+      <div class="app-icon" style="background:linear-gradient(135deg, #FCE7E7, #E8A0A0)">🏷️</div>
+      <div class="app-name">Kilnroom</div>
+      <div class="app-tag">Business Names</div>
+      <p class="app-desc">Brand names, shop names, taglines and a short brand story from a few words about your business.</p>
+      <span class="app-status status-soon">Coming Soon</span>
+    </div>
+    <div class="app-card">
+      <div class="app-icon" style="background:linear-gradient(135deg, #DBEAFE, #60A5FA)">🤝</div>
+      <div class="app-name">Doorstone</div>
+      <div class="app-tag">Job Descriptions</div>
+      <p class="app-desc">Job posts, interview questions, offer letters, onboarding plans and employee surveys for your next hire.</p>
+      <span class="app-status status-soon">Coming Soon</span>
+    </div>
+    <div class="app-card">
+      <div class="app-icon" style="background:linear-gradient(135deg, #FEE2E2, #FCA5A5)">🗓️</div>
+      <div class="app-name">Gavelwork</div>
+      <div class="app-tag">Meeting Agenda</div>
+      <p class="app-desc">Timed agendas, tidy notes from what you type or paste, follow-up emails and clear task write-ups.</p>
+      <span class="app-status status-soon">Coming Soon</span>
+    </div>
+    <div class="app-card">
+      <div class="app-icon" style="background:linear-gradient(135deg, #D1FAE5, #6EE7B7)">🎓</div>
+      <div class="app-name">Quirefold</div>
+      <div class="app-tag">Study Planner</div>
+      <p class="app-desc">Study plans, spaced revision schedules, essay outlines and structured study notes.</p>
+      <span class="app-status status-soon">Coming Soon</span>
+    </div>
+    <div class="app-card">
+      <div class="app-icon" style="background:linear-gradient(135deg, #EDE9FE, #C4B5FD)">🧶</div>
+      <div class="app-name">Yarnwell</div>
+      <div class="app-tag">Story Ideas</div>
+      <p class="app-desc">Story ideas, writing prompts and three-act, hero's journey or five-act outlines for fiction writers.</p>
+      <span class="app-status status-soon">Coming Soon</span>
+    </div>
+    <div class="app-card">
+      <div class="app-icon" style="background:linear-gradient(135deg, #F5E6C4, #E8C068)">📓</div>
+      <div class="app-name">Emberlatch</div>
+      <div class="app-tag">Private Journal</div>
+      <p class="app-desc">A private journal that stays on your phone, with Face ID lock and mood tracking. No cloud, no account.</p>
       <span class="app-status status-dev">In Development</span>
-    </div>
-    <div class="app-card">
-      <div class="app-icon app-icon-resume">📄</div>
-      <div class="app-name">Resume Builder</div>
-      <div class="app-tag">Job Tools · Productivity</div>
-      <p class="app-desc">Build complete, professional resumes from your work history in seconds. Everything on-device. Your career data never leaves your phone.</p>
-      <span class="app-status status-soon">Coming Soon</span>
-    </div>
-    <div class="app-card">
-      <div class="app-icon app-icon-email">✉️</div>
-      <div class="app-name">Email Reply Writer</div>
-      <div class="app-tag">Office Tools · Communication</div>
-      <p class="app-desc">Draft professional email replies instantly. Paste any email, get a polished response — composed privately, right on your phone.</p>
-      <span class="app-status status-soon">Coming Soon</span>
-    </div>
-    <div class="app-card">
-      <div class="app-icon app-icon-coming">🎙️</div>
-      <div class="app-name">Meeting Notes</div>
-      <div class="app-tag">Office Tools · Productivity</div>
-      <p class="app-desc">Turn rough meeting notes into structured summaries. Key decisions, action items, and follow-ups — organized automatically, on-device.</p>
-      <span class="app-status status-soon">Coming Soon</span>
-    </div>
-    <div class="app-card">
-      <div class="app-icon app-icon-coming">📝</div>
-      <div class="app-name">Cover Letter Writer</div>
-      <div class="app-tag">Job Tools · Writing</div>
-      <p class="app-desc">Write tailored cover letters for every job application. Paste the job description, get a custom letter. Fast, private, on-device.</p>
-      <span class="app-status status-soon">Coming Soon</span>
-    </div>
-    <div class="app-card">
-      <div class="app-icon app-icon-coming"><svg width="32" height="32" viewBox="0 0 32 32"><g transform="translate(16,16) rotate(15)"><polygon points="0,-12 2.2,-3.2 10.4,-0.8 2.2,1.6 0,9.6 -2.2,1.6 -10.4,-0.8 -2.2,-3.2" fill="none" stroke="#9C8A72" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="0" cy="0" r="1.4" fill="#9C8A72"/></g></svg></div>
-      <div class="app-name">More Tools Coming</div>
-      <div class="app-tag">Productivity Suite</div>
-      <p class="app-desc">We're building a growing suite of focused tools — for job seekers, HR teams, writers, students, and content creators. All on-device. All private.</p>
-      <span class="app-status status-soon">In Development</span>
     </div>
   </div>
 </section>
