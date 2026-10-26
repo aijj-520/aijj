@@ -95,12 +95,13 @@
   <p>This is architecturally different from cloud-based services. We are technically incapable of viewing your content because it is never transmitted to us.</p>
 
   <h2>5. Local Data Storage</h2>
-  <p>All data you create — content, history, settings, preferences — is stored locally on your device using platform-standard local storage; sensitive data is protected by system-level secure storage where applicable. This data:</p>
+  <p>All data you create — content, history, settings, preferences — is stored locally in the app's own storage on your device. This data:</p>
   <ul>
     <li>Never leaves your device except through iCloud Backup: if iCloud Backup is on, iOS may include app data in your backup, which you control</li>
     <li>Is protected by your device's built-in encryption when you set a device passcode</li>
     <li>Is deleted from your device when you uninstall the app; an earlier iCloud backup may still include it, and you manage backups in iOS Settings</li>
   </ul>
+  <p><strong>Free-use count:</strong> each app also stores one number in the iOS Keychain: how many free uses have been used, so that the free-use limit is not reset when you reinstall the app. This count contains nothing you typed and no generated content, and it is not sent to our servers. Unlike the app's own storage, items in the iOS Keychain may remain on your device after you uninstall the app.</p>
 
   <h2>6. No Third-Party Tracking</h2>
   <p>Our apps do not include:</p>
