@@ -6,6 +6,18 @@
   <title>Blog — AIJJ LLC</title>
   <meta name="description" content="Thoughts on privacy-first software, on-device computing, and building focused tools for people who care about their data.">
   <link rel="canonical" href="https://aijj.net/blog" />
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/icon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AIJJ">
+  <meta property="og:title" content="Blog — AIJJ LLC">
+  <meta property="og:description" content="Thoughts on privacy-first software, on-device computing, and building focused tools for people who care about their data.">
+  <meta property="og:url" content="https://aijj.net/blog">
+  <meta property="og:image" content="https://aijj.net/assets/og/default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -77,6 +89,10 @@
       .article-card { grid-template-columns: 1fr; gap: 0; }
       .article-num { display: none; }
       footer { padding: 36px 24px; flex-direction: column; align-items: flex-start; }
+    }
+    @media (max-width: 420px) {
+      nav { padding: 14px 16px; gap: 12px; } nav ul { gap: 12px; }
+      nav a { font-size: 0.7rem; letter-spacing: 0.02em; }
     }
   </style>
 </head>

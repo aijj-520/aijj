@@ -6,6 +6,21 @@
   <title>AIJJ — Privacy-First Productivity Apps</title>
   <meta name="description" content="AIJJ LLC builds small, focused productivity apps where everything runs on your device: Tactworks, Slateroom, Draftmill and more. No cloud, no account, no data harvesting.">
   <link rel="canonical" href="https://aijj.net/" />
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/icon-32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="AIJJ">
+  <meta property="og:title" content="AIJJ — Privacy-First Productivity Apps">
+  <meta property="og:description" content="AIJJ LLC builds small, focused productivity apps where everything runs on your device: Tactworks, Slateroom, Draftmill and more. No cloud, no account, no data harvesting.">
+  <meta property="og:url" content="https://aijj.net/">
+  <meta property="og:image" content="https://aijj.net/assets/og/default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"AIJJ LLC","url":"https://aijj.net/","logo":"https://aijj.net/assets/icons/icon-512.png","email":"support@aijj.net"}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -43,7 +58,7 @@
     section { padding: 100px 48px; }
     .section-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
     h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.15; color: var(--dark); margin-bottom: 60px; }
-    .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2px; }
+    .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 2px; }
     .app-card { background: var(--warm-white); padding: 48px 40px; border: 1px solid var(--border); position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
     .app-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(26,22,16,0.08); z-index: 1; }
     .app-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold-light), var(--gold)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
@@ -61,6 +76,9 @@
     .status-soon { background: rgba(92,80,64,0.08); color: var(--light); }
     .btn-store { display: inline-block; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 16px; border-radius: 20px; background: var(--dark); color: white; text-decoration: none; transition: background 0.2s; }
     .btn-store:hover { background: var(--gold); }
+    .app-actions { display: flex; align-items: center; gap: 12px 18px; flex-wrap: wrap; }
+    .app-more { font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); text-decoration: none; }
+    .app-more:hover { color: var(--dark); }
     .apps-note { font-size: 0.92rem; color: var(--mid); margin: -36px 0 40px; max-width: 640px; }
     .apps-note a { color: var(--gold); text-decoration: none; }
     .principles { background: var(--warm-white); }
@@ -86,6 +104,10 @@
       .divider { margin: 0 24px; }
       footer { padding: 36px 24px; flex-direction: column; align-items: flex-start; }
       .app-card { padding: 36px 28px; }
+    }
+    @media (max-width: 420px) {
+      nav { padding: 14px 16px; gap: 12px; } nav ul { gap: 12px; }
+      nav a { font-size: 0.7rem; letter-spacing: 0.02em; }
     }
   </style>
 </head>
@@ -130,21 +152,30 @@
       <div class="app-name">Tactworks</div>
       <div class="app-tag">Business Emails</div>
       <p class="app-desc">Cold outreach, sales, reminder and apology emails, each with a clear subject line — ready to edit and send.</p>
-      <a class="btn-store" href="https://apps.apple.com/us/app/tactworks/id6806494617" target="_blank" rel="noopener">Download on the App Store →</a>
+      <div class="app-actions">
+        <a class="btn-store" href="https://apps.apple.com/us/app/tactworks/id6806494617" target="_blank" rel="noopener">Download on the App Store →</a>
+        <a class="app-more" href="/apps/tactworks" aria-label="Tactworks details">Details →</a>
+      </div>
     </div>
     <div class="app-card">
       <div class="app-icon" style="background:linear-gradient(135deg, #DCFCE7, #86EFAC)">📚</div>
       <div class="app-name">Slateroom</div>
       <div class="app-tag">Lesson Planner</div>
       <p class="app-desc">Course outlines and timed, five-phase lesson plans for teachers and trainers, for any subject and grade level.</p>
-      <a class="btn-store" href="https://apps.apple.com/us/app/slateroom/id6806487773" target="_blank" rel="noopener">Download on the App Store →</a>
+      <div class="app-actions">
+        <a class="btn-store" href="https://apps.apple.com/us/app/slateroom/id6806487773" target="_blank" rel="noopener">Download on the App Store →</a>
+        <a class="app-more" href="/apps/slateroom" aria-label="Slateroom details">Details →</a>
+      </div>
     </div>
     <div class="app-card">
       <div class="app-icon" style="background:linear-gradient(135deg, #FCE7F3, #F9A8D4)">✍️</div>
       <div class="app-name">Draftmill</div>
       <div class="app-tag">Blog &amp; Captions</div>
       <p class="app-desc">Blog outlines, headlines, video titles, captions and hooks — from a topic to something you can post.</p>
-      <a class="btn-store" href="https://apps.apple.com/us/app/draftmill/id6806494596" target="_blank" rel="noopener">Download on the App Store →</a>
+      <div class="app-actions">
+        <a class="btn-store" href="https://apps.apple.com/us/app/draftmill/id6806494596" target="_blank" rel="noopener">Download on the App Store →</a>
+        <a class="app-more" href="/apps/draftmill" aria-label="Draftmill details">Details →</a>
+      </div>
     </div>
     <div class="app-card">
       <div class="app-icon" style="background:linear-gradient(135deg, #FFEDD5, #FDBA74)">🛍️</div>

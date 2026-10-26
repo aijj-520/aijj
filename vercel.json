@@ -5,6 +5,9 @@
     { "source": "/terms",   "destination": "/terms.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/support", "destination": "/support.html" },
-    { "source": "/ponder",  "destination": "/ponder.html" }
+    { "source": "/ponder",  "destination": "/ponder.html" },
+    { "source": "/apps/tactworks", "destination": "/apps/tactworks.html" },
+    { "source": "/apps/slateroom", "destination": "/apps/slateroom.html" },
+    { "source": "/apps/draftmill", "destination": "/apps/draftmill.html" }
   ]
 }
