@@ -64,6 +64,7 @@
     .article-body h3:first-child { margin-top: 0; }
     .article-body p { font-size: 0.92rem; color: var(--mid); line-height: 1.8; margin-bottom: 16px; }
     .article-body p:last-child { margin-bottom: 0; }
+    .article-body a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
     .article-body blockquote { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-style: italic; color: var(--dark); border-left: 3px solid var(--gold); padding-left: 24px; margin: 24px 0; }
     .close-btn { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; color: var(--light); letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; margin-top: 24px; transition: color 0.2s; background: none; border: none; padding: 0; font-family: 'DM Sans', sans-serif; }
     .close-btn:hover { color: var(--gold); }
@@ -110,7 +111,7 @@
 
 <div class="page-hero">
   <div class="page-label">AIJJ Blog</div>
-  <h1>Thinking about<br><em>privacy</em>, AI,<br>and craft</h1>
+  <h1>Thinking about<br><em>privacy</em>, on-device<br>software and craft</h1>
   <p class="page-sub">Occasional thoughts on why we build the way we build — and what it means to put users first in the age of AI.</p>
 </div>
 
@@ -122,21 +123,21 @@
   <div class="article-card" onclick="toggleArticle('a1')">
     <div>
       <div class="article-tag">Privacy</div>
-      <div class="article-title">Why Your Data Never Leaves Your Phone — And Why It Matters More Than Ever</div>
-      <p class="article-excerpt">Every major AI company wants your data. We made a different choice. Here's why processing everything locally on your device isn't just a technical decision — it's a values decision.</p>
+      <div class="article-title">Why Our Apps Process Your Writing on Your Phone — And Why It Matters</div>
+      <p class="article-excerpt">Every major AI company wants your data. We made a different choice. Here's why processing what you type on your device isn't just a technical decision — it's a values decision.</p>
       <div class="article-meta">March 2026 · 5 min read</div>
     </div>
     <div class="article-num">01</div>
     <div class="article-body" id="a1">
       <h3>The cloud AI bargain</h3>
       <p>Every time you type a message into a cloud AI app, that text travels to a server somewhere. It gets processed, stored, potentially reviewed, and used to improve the model. You get a useful answer. The company gets your data. That's the implicit bargain — and most people don't realize they've made it.</p>
-      <p>We thought about this a lot when we started building AIJJ. The apps we wanted to make — tools for writing, thinking, working — would handle sensitive content. Resumes. Emails. Meeting notes. Personal reflections. The kind of content people wouldn't want floating around in a data center.</p>
-      <blockquote>"The best feature we could ship was never sending your data anywhere in the first place."</blockquote>
+      <p>We thought about this a lot when we started building AIJJ. The apps we wanted to make — tools for writing, thinking, working — would handle sensitive content. Business emails. Lesson plans. Drafts you haven't published yet. The kind of content people wouldn't want floating around in a data center.</p>
+      <blockquote>"The best feature we could ship was never sending your writing to our servers in the first place."</blockquote>
       <h3>Local processing is no longer a compromise</h3>
-      <p>For years, doing everything on the device meant accepting worse tools. That has changed. Modern phones are more than powerful enough to handle focused productivity tasks — building a resume, drafting a reply, structuring notes — entirely locally, with no server in the loop.</p>
-      <p>For focused, single-purpose tools like ours, local processing is more than good enough. A resume builder doesn't need a data center. It needs software that understands structure, follows instructions, and produces clean output. That's fully achievable on-device.</p>
+      <p>For years, doing everything on the device meant accepting worse tools. That has changed. Modern phones are more than powerful enough to handle focused productivity tasks — drafting a business email, planning a lesson, outlining a blog post — entirely locally, with no server in the loop.</p>
+      <p>For focused, single-purpose tools like ours, local processing is more than good enough. A lesson planner doesn't need a data center. It needs well-designed software that applies clear structures to what you enter and produces clean output. That's fully achievable on-device.</p>
       <h3>What this means for you</h3>
-      <p>When you use an AIJJ app, your content never leaves your device. There are no servers receiving your resume drafts. No logs of your email rewrites. No database of your meeting notes. The work happens in the same place your data lives — your phone. We have no way to see it, and no interest in collecting it.</p>
+      <p>When you use an AIJJ app, the text you type is processed and stored on your device. Our apps don't send it to our servers or to any third-party service. The work happens in the same place your data lives — your phone. We have no way to see it, and no interest in collecting it. Two things are worth knowing: if iCloud Backup is turned on, iOS may include app data in your device backup, which you control; and purchase and subscription status is handled through Apple and RevenueCat, as described in our <a href="/privacy">Privacy Policy</a>.</p>
       <p>That's not a limitation of our business model. It is our business model. Privacy by architecture, not by policy.</p>
       <button class="close-btn" onclick="event.stopPropagation(); toggleArticle('a1')">↑ Close article</button>
     </div>
@@ -146,8 +147,8 @@
   <div class="article-card" onclick="toggleArticle('a2')">
     <div>
       <div class="article-tag">Product Philosophy</div>
-      <div class="article-title">Small Tools Beat All-in-One Apps — Here's the Evidence</div>
-      <p class="article-excerpt">The productivity app market is dominated by giant platforms that try to do everything. We believe the opposite approach — one tool, one job, done well — consistently produces better results for users.</p>
+      <div class="article-title">Why We Build Small, Focused Apps Instead of All-in-One Platforms</div>
+      <p class="article-excerpt">The productivity app market is dominated by giant platforms that try to do everything. We believe the opposite approach — one tool, one job, done well — works better for many everyday tasks.</p>
       <div class="article-meta">March 2026 · 4 min read</div>
     </div>
     <div class="article-num">02</div>
@@ -158,9 +159,9 @@
       <h3>The focused tool advantage</h3>
       <p>A tool that does one thing can optimize for that one thing completely. The interface can be stripped to essentials. The engine can be tuned for one type of task. The onboarding can be instant. You open it, you use it, you close it.</p>
       <blockquote>"We don't build platforms. We build precise instruments."</blockquote>
-      <p>This is the philosophy behind AIJJ. Each app we build covers one job and the writing around it. Fairhand handles job applications. Gavelwork handles meetings. Slateroom handles lesson planning. They don't try to do each other's job. They don't come with dashboards, integrations, or notification systems. They open fast, do the work, and get out of your way.</p>
+      <p>This is the philosophy behind AIJJ. Each app we build covers one job and the writing around it. <a href="/apps/tactworks">Tactworks</a> handles business emails. <a href="/apps/slateroom">Slateroom</a> handles lesson planning. <a href="/apps/draftmill">Draftmill</a> handles content drafts, from blog outlines to video hooks. They don't try to do each other's job. They don't come with dashboards, integrations, or notification systems. They open fast, do the work, and get out of your way.</p>
       <h3>Better for the App Store ecosystem too</h3>
-      <p>There's a practical benefit as well. A focused app can rank for a specific search query in the App Store far more effectively than a Swiss Army knife app. "Resume builder" is a search term with clear intent. An all-in-one productivity suite ranks for nothing in particular.</p>
+      <p>There's a practical benefit as well. A focused app can rank for a specific search query in the App Store far more effectively than a Swiss Army knife app. "Lesson plan maker" is a search term with clear intent. An all-in-one productivity suite ranks for nothing in particular.</p>
       <p>Our matrix approach — building a suite of focused tools under one developer identity — lets each app compete on its own terms, while the AIJJ brand creates trust across the portfolio. It's a different way of thinking about product strategy, and so far, it's the one we believe in.</p>
       <button class="close-btn" onclick="event.stopPropagation(); toggleArticle('a2')">↑ Close article</button>
     </div>
@@ -170,8 +171,8 @@
   <div class="article-card" onclick="toggleArticle('a3')">
     <div>
       <div class="article-tag">Privacy</div>
-      <div class="article-title">Privacy-First in 2026: What It Actually Means to Build Without Collecting Data</div>
-      <p class="article-excerpt">"Privacy-first" has become a marketing phrase. We want to explain what it actually means in practice — technically and philosophically — when you build apps that genuinely don't collect user data.</p>
+      <div class="article-title">Privacy-First in 2026: What It Means to Build Without Collecting Your Content</div>
+      <p class="article-excerpt">"Privacy-first" has become a marketing phrase. We want to explain what it actually means in practice — technically and philosophically — when you build apps that don't collect what you write or your personal data.</p>
       <div class="article-meta">March 2026 · 6 min read</div>
     </div>
     <div class="article-num">03</div>
@@ -180,15 +181,15 @@
       <p>Almost every app claims to take privacy seriously. Privacy policies run to thousands of words. Cookie consent banners appear on every website. And yet the data collection continues — it's just disclosed now, in documents no one reads.</p>
       <p>Real privacy doesn't come from policies. It comes from architecture. The only way to truly protect user data is to never collect it in the first place. You can't leak what you don't have. You can't be compelled to hand over what doesn't exist on your servers.</p>
       <h3>What "on-device" really means</h3>
-      <p>When we say our apps run on-device, we mean exactly that. When you use the app, your input is processed by software running entirely within your device's CPU and memory. The result is computed locally and displayed to you. Nothing is transmitted.</p>
+      <p>When we say our apps run on-device, we mean exactly that. When you use the app, your input is processed by software running on your device. The result is computed locally and displayed to you. Your content is not sent to our servers or to any third-party service. Purchases are verified through Apple and RevenueCat, and if iCloud Backup is turned on, iOS may include app data in your device backup, as our <a href="/privacy">Privacy Policy</a> explains.</p>
       <blockquote>"We have no servers that receive your content. Not because we deleted it — because it was never sent."</blockquote>
       <p>This is architecturally different from a privacy policy that says "we don't sell your data." A company can commit to not selling data and still collect it, store it, analyze it internally, and expose it in a breach. We eliminate that entire risk surface by design.</p>
       <h3>The trade-offs we accept</h3>
       <p>This approach requires trade-offs. On-device tools can't draw on the scale of cloud infrastructure. They don't improve from harvesting user interactions the way cloud services do. We can't offer cross-device sync without building our own sync infrastructure (which we've chosen not to do).</p>
-      <p>We think these are the right trade-offs. The apps we build are tools, not platforms. They produce output you use elsewhere — a resume you send, an email you revise, a summary you share. The quality of that output needs to be good, not perfect. And for the tasks our apps handle, on-device software today is genuinely good.</p>
+      <p>We think these are the right trade-offs. The apps we build are tools, not platforms. They produce output you use elsewhere — an email you send, a lesson you teach, a post you publish. The quality of that output needs to be good, not perfect. And for the tasks our apps handle, on-device software today is genuinely good.</p>
       <h3>Why this matters more in 2026</h3>
       <p>AI has made the data collection problem significantly worse. Every interaction with a cloud AI is a detailed behavioral record. Your questions reveal your anxieties, your work, your relationships, your plans. That's a rich dataset for advertisers, insurers, employers, and governments — whether or not anyone intends it to be used that way.</p>
-      <p>Building tools that run locally is one of the few ways to offer genuine assistance without participating in mass behavioral surveillance. We think it's worth the engineering complexity. And we think users increasingly agree.</p>
+      <p>Building tools that run locally is one of the few ways to offer useful writing and planning tools without participating in mass behavioral surveillance. You can see what that looks like in <a href="/apps/tactworks">Tactworks</a>, <a href="/apps/slateroom">Slateroom</a> and <a href="/apps/draftmill">Draftmill</a>. We think it's worth the engineering complexity. And we think users increasingly agree.</p>
       <button class="close-btn" onclick="event.stopPropagation(); toggleArticle('a3')">↑ Close article</button>
     </div>
   </div>

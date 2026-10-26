@@ -1,11 +1,14 @@
 {
+  "redirects": [
+    { "source": "/ponder",      "destination": "/", "permanent": true },
+    { "source": "/ponder.html", "destination": "/", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/about",   "destination": "/about.html" },
     { "source": "/blog",    "destination": "/blog.html" },
     { "source": "/terms",   "destination": "/terms.html" },
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/support", "destination": "/support.html" },
-    { "source": "/ponder",  "destination": "/ponder.html" },
     { "source": "/apps/tactworks", "destination": "/apps/tactworks.html" },
     { "source": "/apps/slateroom", "destination": "/apps/slateroom.html" },
     { "source": "/apps/draftmill", "destination": "/apps/draftmill.html" }
