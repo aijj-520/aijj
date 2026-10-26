@@ -43,7 +43,7 @@
     section { padding: 100px 48px; }
     .section-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
     h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 300; line-height: 1.15; color: var(--dark); margin-bottom: 60px; }
-    .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2px; }
+    .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); gap: 2px; }
     .app-card { background: var(--warm-white); padding: 48px 40px; border: 1px solid var(--border); position: relative; overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
     .app-card:hover { transform: translateY(-4px); box-shadow: 0 20px 48px rgba(26,22,16,0.08); z-index: 1; }
     .app-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold-light), var(--gold)); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
@@ -86,6 +86,10 @@
       .divider { margin: 0 24px; }
       footer { padding: 36px 24px; flex-direction: column; align-items: flex-start; }
       .app-card { padding: 36px 28px; }
+    }
+    @media (max-width: 420px) {
+      nav { padding: 14px 16px; gap: 12px; } nav ul { gap: 12px; }
+      nav a { font-size: 0.7rem; letter-spacing: 0.02em; }
     }
   </style>
 </head>

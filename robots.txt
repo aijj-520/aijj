@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aijj.net/sitemap.xml
