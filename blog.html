@@ -50,6 +50,7 @@
     .article-card:first-child { padding-top: 0; }
     .article-card:last-child { border-bottom: none; }
     .article-card:hover .article-title { color: var(--gold); }
+    a.article-card { text-decoration: none; color: inherit; }
     .article-tag { font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
     .article-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 2.5vw, 2.2rem); font-weight: 400; color: var(--dark); line-height: 1.2; margin-bottom: 16px; transition: color 0.2s; }
     .article-excerpt { font-size: 0.9rem; color: var(--mid); line-height: 1.75; margin-bottom: 20px; }
@@ -193,6 +194,37 @@
       <button class="close-btn" onclick="event.stopPropagation(); toggleArticle('a3')">↑ Close article</button>
     </div>
   </div>
+
+  <!-- Guides (separate pages) -->
+  <a class="article-card" href="/guides/cold-email-bakery-website">
+    <div>
+      <div class="article-tag">Guide · Tactworks</div>
+      <div class="article-title">Cold Email Example: Pitching a Website to a Local Bakery</div>
+      <p class="article-excerpt">The exact inputs, the full email Tactworks wrote on iPhone, and the three edits worth making before you send it.</p>
+      <div class="article-meta">October 2026 · Read the guide →</div>
+    </div>
+    <div class="article-num">04</div>
+  </a>
+
+  <a class="article-card" href="/guides/course-outline-intro-to-photography">
+    <div>
+      <div class="article-tag">Guide · Slateroom</div>
+      <div class="article-title">Course Outline Example: Intro to Photography (6 Modules)</div>
+      <p class="article-excerpt">A complete four-week beginner course outline with objectives, activities and a final assessment, and what to check before you teach from it.</p>
+      <div class="article-meta">October 2026 · Read the guide →</div>
+    </div>
+    <div class="article-num">05</div>
+  </a>
+
+  <a class="article-card" href="/guides/blog-outline-home-coffee-brewing">
+    <div>
+      <div class="article-tag">Guide · Draftmill</div>
+      <div class="article-title">Blog Post Outline Example: Home Coffee Brewing for Beginners</div>
+      <p class="article-excerpt">The settings we used, the full how-to outline Draftmill built, and how to turn an outline into a finished post.</p>
+      <div class="article-meta">October 2026 · Read the guide →</div>
+    </div>
+    <div class="article-num">06</div>
+  </a>
 
 </div>
 

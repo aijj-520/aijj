@@ -11,6 +11,9 @@
     { "source": "/support", "destination": "/support.html" },
     { "source": "/apps/tactworks", "destination": "/apps/tactworks.html" },
     { "source": "/apps/slateroom", "destination": "/apps/slateroom.html" },
-    { "source": "/apps/draftmill", "destination": "/apps/draftmill.html" }
+    { "source": "/apps/draftmill", "destination": "/apps/draftmill.html" },
+    { "source": "/guides/cold-email-bakery-website", "destination": "/guides/cold-email-bakery-website.html" },
+    { "source": "/guides/course-outline-intro-to-photography", "destination": "/guides/course-outline-intro-to-photography.html" },
+    { "source": "/guides/blog-outline-home-coffee-brewing", "destination": "/guides/blog-outline-home-coffee-brewing.html" }
   ]
 }

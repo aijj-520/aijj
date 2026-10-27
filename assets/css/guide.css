@@ -1,0 +1,17 @@
+/* Extra styles for /guides/* pages. Load after app-page.css. */
+.guide-meta { font-size: 0.8rem; color: var(--light); letter-spacing: 0.02em; }
+.prose { max-width: 720px; }
+.prose ol, .prose ul { padding-left: 1.3em; margin-bottom: 16px; }
+.prose li { font-size: 0.95rem; color: var(--mid); line-height: 1.8; margin-bottom: 10px; }
+.prose li strong, .prose p strong { font-weight: 500; color: var(--dark); }
+.prose a, .note a { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; }
+.cta-box p a { color: var(--dark); text-decoration: underline; text-underline-offset: 2px; }
+.prose h3 { margin-top: 32px; }
+.prose .info-table { margin: 8px 0 24px; }
+
+.output { max-width: 720px; background: var(--warm-white); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 4px; padding: 28px 32px; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; font-weight: 400; line-height: 1.75; color: var(--dark); white-space: pre-wrap; overflow-wrap: anywhere; }
+.note { font-size: 0.82rem; color: var(--light); max-width: 720px; margin-top: 16px; }
+
+@media (max-width: 768px) {
+  .output { padding: 22px 20px; font-size: 0.88rem; }
+}
