@@ -1,7 +1,8 @@
 {
   "redirects": [
     { "source": "/ponder",      "destination": "/", "permanent": true },
-    { "source": "/ponder.html", "destination": "/", "permanent": true }
+    { "source": "/ponder.html", "destination": "/", "permanent": true },
+    { "source": "/tools/classroom-worksheets/", "destination": "/tools/classroom-worksheets", "permanent": true }
   ],
   "rewrites": [
     { "source": "/about",   "destination": "/about.html" },
@@ -14,6 +15,7 @@
     { "source": "/apps/draftmill", "destination": "/apps/draftmill.html" },
     { "source": "/guides/cold-email-bakery-website", "destination": "/guides/cold-email-bakery-website.html" },
     { "source": "/guides/course-outline-intro-to-photography", "destination": "/guides/course-outline-intro-to-photography.html" },
-    { "source": "/guides/blog-outline-home-coffee-brewing", "destination": "/guides/blog-outline-home-coffee-brewing.html" }
+    { "source": "/guides/blog-outline-home-coffee-brewing", "destination": "/guides/blog-outline-home-coffee-brewing.html" },
+    { "source": "/tools/classroom-worksheets", "destination": "/tools/classroom-worksheets.html" }
   ]
 }
