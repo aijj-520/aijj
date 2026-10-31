@@ -1,0 +1,99 @@
+/* Free tool pages: Slateroom promo banner, animated worksheet stack, scroll reveal.
+   Load after app-page.css. All motion is switched off for prefers-reduced-motion. */
+
+/* ---------- Slateroom promo banner (top of page) ---------- */
+.promo { margin: 96px 48px 0; padding: 56px; border-radius: 6px; background: radial-gradient(120% 140% at 85% 10%, #3A2E1C 0%, #1A1610 55%); color: #F7F3EC; display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 48px; align-items: center; position: relative; overflow: hidden; }
+.promo::after { content: ''; position: absolute; inset: -40% -10% auto auto; width: 520px; height: 520px; border-radius: 50%; background: radial-gradient(circle, rgba(232,192,104,0.22), transparent 65%); pointer-events: none; animation: promoGlow 9s ease-in-out infinite alternate; }
+.promo-label { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 18px; display: flex; align-items: center; gap: 12px; }
+.promo-label b { font-weight: 500; background: var(--gold); color: var(--dark); padding: 3px 9px; border-radius: 3px; letter-spacing: 0.1em; }
+.promo h2 { color: #FDFAF5; font-size: clamp(2.1rem, 4.2vw, 3.6rem); margin-bottom: 18px; line-height: 1.05; }
+.promo h2 em { font-style: italic; color: var(--gold-light); }
+.promo p { color: rgba(247,243,236,0.78); font-size: 1rem; max-width: 520px; }
+.promo-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin-top: 28px; }
+.btn-gold { background: var(--gold); color: var(--dark); border: 1px solid var(--gold); font-weight: 500; position: relative; overflow: hidden; }
+.btn-gold::before { content: ''; position: absolute; top: 0; left: -60%; width: 40%; height: 100%; background: linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent); transform: skewX(-20deg); animation: shine 4.5s ease-in-out infinite; }
+.btn-gold:hover { background: var(--gold-light); border-color: var(--gold-light); transform: translateY(-1px); }
+.btn-ghost { color: #F7F3EC; border: 1px solid rgba(247,243,236,0.35); }
+.btn-ghost:hover { border-color: var(--gold-light); color: var(--gold-light); }
+.promo-note { font-size: 0.78rem; color: rgba(247,243,236,0.55); margin-top: 16px; }
+
+.phone { width: 240px; aspect-ratio: 600 / 1304; margin: 0 auto; border-radius: 34px; padding: 9px; background: #0E0C08; box-shadow: 0 0 0 1px rgba(232,192,104,0.35), 0 30px 60px rgba(0,0,0,0.45); position: relative; animation: float 6s ease-in-out infinite; }
+.phone-screen { position: relative; width: 100%; height: 100%; border-radius: 26px; overflow: hidden; background: #fff; }
+.phone-screen img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; animation: screens 10s infinite; }
+.phone-screen img:nth-child(1) { animation-delay: 0s; }
+.phone-screen img:nth-child(2) { animation-delay: 5s; }
+
+/* ---------- Hero with animated worksheet stack ---------- */
+.hero-split { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 40px; align-items: center; padding: 72px 48px 72px; }
+.hero-split .page-hero { padding: 0; }
+.sheet-stack { position: relative; width: min(100%, 380px); aspect-ratio: 600 / 776; margin: 0 auto; }
+.sheet { position: absolute; inset: 0; border-radius: 6px; overflow: hidden; background: #fff; box-shadow: 0 18px 40px rgba(26,22,16,0.16); border: 1px solid var(--border); animation: deal 12s infinite; }
+.sheet img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.sheet:nth-child(1) { animation-delay: 0s; }
+.sheet:nth-child(2) { animation-delay: -4s; }
+.sheet:nth-child(3) { animation-delay: -8s; }
+.sheet-tag { position: absolute; top: 14px; left: 50%; transform: translateX(-50%); background: #1F5C4A; color: #fff; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.04em; padding: 5px 14px; border-radius: 999px; white-space: nowrap; }
+.key-peek { position: absolute; right: -18px; bottom: -22px; width: 46%; border-radius: 6px; overflow: hidden; border: 2px solid #8A4B1C; box-shadow: 0 14px 30px rgba(26,22,16,0.2); background: #fff; z-index: 5; animation: peek 6s ease-in-out infinite; }
+.key-peek img { display: block; width: 100%; height: auto; }
+.key-peek span { position: absolute; top: 8px; left: 50%; transform: translateX(-50%); background: #8A4B1C; color: #fff; font-size: 0.68rem; padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
+.stack-caption { text-align: center; font-size: 0.8rem; color: var(--light); margin-top: 34px; }
+
+/* ---------- Bottom Slateroom card with button ---------- */
+.app-promo-card { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 28px; align-items: center; background: var(--warm-white); border: 1px solid var(--border); padding: 28px; max-width: 820px; transition: transform 0.25s, box-shadow 0.25s; }
+.app-promo-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(26,22,16,0.08); }
+.app-promo-card img { width: 120px; height: auto; border-radius: 14px; border: 1px solid var(--border); }
+.app-promo-card strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--dark); }
+.app-promo-card .promo-actions { margin-top: 16px; }
+.app-promo-card .btn-ghost { color: var(--dark); border-color: var(--border); }
+.app-promo-card .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ---------- Scroll reveal (only when JS is on) ---------- */
+.js .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+.js .reveal-stagger > * { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.js .reveal-stagger.is-visible > * { opacity: 1; transform: none; }
+.js .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.12s; }
+.js .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.24s; }
+.js .reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.36s; }
+.feature, .steps li { transition: transform 0.25s, box-shadow 0.25s; }
+.feature:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(26,22,16,0.07); }
+
+@keyframes float { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-12px) rotate(-1deg); } }
+@keyframes screens { 0% { opacity: 0; } 6% { opacity: 1; } 48% { opacity: 1; } 56% { opacity: 0; } 100% { opacity: 0; } }
+@keyframes shine { 0%, 60% { left: -60%; } 100% { left: 130%; } }
+@keyframes promoGlow { from { transform: translate(0, 0); } to { transform: translate(-60px, 40px); } }
+@keyframes peek { 0%, 100% { transform: translateY(0) rotate(3deg); } 50% { transform: translateY(-8px) rotate(2deg); } }
+/* Each sheet spends a third of the cycle in front, then moves to the back of the stack. */
+@keyframes deal {
+  0%     { transform: translate(0, 0) rotate(0deg); z-index: 3; opacity: 1; }
+  28%    { transform: translate(0, 0) rotate(0deg); z-index: 3; opacity: 1; }
+  33.3%  { transform: translate(-30%, 4%) rotate(-10deg); z-index: 3; opacity: 0; }
+  33.4%  { transform: translate(-28px, 22px) rotate(-6deg); z-index: 1; opacity: 0.85; }
+  66%    { transform: translate(-14px, 11px) rotate(-3deg); z-index: 2; opacity: 0.95; }
+  99%    { transform: translate(0, 0) rotate(0deg); z-index: 2; opacity: 1; }
+  100%   { transform: translate(0, 0) rotate(0deg); z-index: 3; opacity: 1; }
+}
+
+@media (max-width: 900px) {
+  .promo { grid-template-columns: 1fr; margin: 84px 24px 0; padding: 40px 28px; gap: 32px; }
+  .phone { width: 190px; }
+  .hero-split { grid-template-columns: 1fr; padding: 56px 24px; gap: 56px; }
+  .sheet-stack { width: min(82%, 320px); }
+}
+@media (max-width: 420px) {
+  .promo { margin: 76px 16px 0; padding: 32px 20px; }
+  .promo-actions .btn { width: 100%; justify-content: center; }
+  .phone { width: 168px; }
+  .app-promo-card { grid-template-columns: 1fr; }
+  .app-promo-card img { width: 140px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .promo::after, .btn-gold::before, .phone, .key-peek { animation: none; }
+  .phone-screen img { animation: none; }
+  .phone-screen img:nth-child(2) { opacity: 1; }
+  .sheet { animation: none; }
+  .sheet:nth-child(2) { transform: translate(-14px, 11px) rotate(-3deg); }
+  .sheet:nth-child(3) { transform: translate(-28px, 22px) rotate(-6deg); }
+  .sheet:nth-child(1) { z-index: 3; } .sheet:nth-child(2) { z-index: 2; } .sheet:nth-child(3) { z-index: 1; }
+  .js .reveal, .js .reveal-stagger > * { opacity: 1; transform: none; transition: none; }
+}

@@ -28,6 +28,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/app-page.css">
   <link rel="stylesheet" href="/assets/css/guide.css">
+  <link rel="stylesheet" href="/assets/css/tool-motion.css">
 </head>
 <body>
 
@@ -42,6 +43,26 @@
   </ul>
 </nav>
 
+<aside class="promo" aria-label="Slateroom, a lesson planning app from AIJJ">
+  <div>
+    <div class="promo-label"><b>New</b> From AIJJ · For teachers</div>
+    <h2>Plan the lesson in minutes.<br><em>Slateroom</em> does the outline.</h2>
+    <p>Course outlines and minute-by-minute lesson plans with warm-up, guided practice and wrap-up, built on your iPhone or iPad from a topic and a class length.</p>
+    <div class="promo-actions">
+      <a class="btn btn-gold" href="https://apps.apple.com/us/app/slateroom/id6806487773" target="_blank" rel="noopener">Download on the App Store →</a>
+      <a class="btn btn-ghost" href="/apps/slateroom">See how it works</a>
+    </div>
+    <p class="promo-note">Free to download · In-app subscriptions · iPhone &amp; iPad</p>
+  </div>
+  <div class="phone" aria-hidden="true">
+    <div class="phone-screen">
+      <img src="/assets/apps/slateroom/01-home.jpg" width="600" height="1304" alt="" decoding="async">
+      <img src="/assets/apps/slateroom/03-result.jpg" width="600" height="1304" alt="" decoding="async">
+    </div>
+  </div>
+</aside>
+
+<div class="hero-split">
 <header class="page-hero">
   <div class="breadcrumb"><a href="/">Home</a> / Free tool</div>
   <div class="app-head">
@@ -55,13 +76,23 @@
     <span class="price-note">Free · No account · Works in your web browser</span>
   </div>
 </header>
+<div aria-label="Three different worksheets from one class and the answer key">
+  <div class="sheet-stack">
+    <div class="sheet"><img src="/assets/tools/worksheets/student-01.jpg" width="600" height="776" alt="Real multiplication worksheet for Student #01" decoding="async"><span class="sheet-tag">Student #01</span></div>
+    <div class="sheet"><img src="/assets/tools/worksheets/student-02.jpg" width="600" height="776" alt="Real multiplication worksheet for Student #02 with different problems" decoding="async"><span class="sheet-tag">Student #02</span></div>
+    <div class="sheet"><img src="/assets/tools/worksheets/student-03.jpg" width="600" height="776" alt="Real multiplication worksheet for Student #03 with different problems" decoding="async"><span class="sheet-tag">Student #03</span></div>
+    <div class="key-peek"><img src="/assets/tools/worksheets/answer-key.jpg" width="600" height="776" alt="Matching teacher answer key" loading="lazy" decoding="async"><span>Answer key</span></div>
+  </div>
+  <p class="stack-caption">Real worksheets from one class: same level, different problems.</p>
+</div>
+</div>
 
 <div class="divider"></div>
 
-<section>
+<section class="reveal">
   <div class="section-label">What you get</div>
   <h2>Two PDFs, ready to print</h2>
-  <div class="feature-grid">
+  <div class="feature-grid reveal-stagger">
     <div class="feature">
       <h3>Student worksheets</h3>
       <p>One page per student, with a name or student number, a date line and the problems. Every worksheet in the class has its own set of problems, and the worksheets never show answers.</p>
@@ -79,10 +110,10 @@
 
 <div class="divider"></div>
 
-<section>
+<section class="reveal">
   <div class="section-label">How it works</div>
   <h2>Three steps to printable worksheets</h2>
-  <ol class="steps">
+  <ol class="steps reveal-stagger">
     <li>
       <h3>Choose the worksheet</h3>
       <p>Addition, subtraction, multiplication or division; Easy, Medium or Hard; 10, 20 or 30 problems per student; US Letter or A4 paper.</p>
@@ -100,7 +131,7 @@
 
 <div class="divider"></div>
 
-<section>
+<section class="reveal">
   <div class="section-label">Levels</div>
   <h2>What each level includes</h2>
   <table class="info-table">
@@ -114,7 +145,7 @@
 
 <div class="divider"></div>
 
-<section>
+<section class="reveal">
   <div class="section-label">Privacy</div>
   <h2>Student names stay in your browser</h2>
   <div class="privacy-box">
@@ -130,7 +161,7 @@
 
 <div class="divider"></div>
 
-<section>
+<section class="reveal">
   <div class="section-label">FAQ</div>
   <h2>Questions teachers ask</h2>
   <div class="faq">
@@ -167,7 +198,7 @@
 
 <div class="divider"></div>
 
-<section>
+<section class="reveal">
   <div class="cta-box">
     <div>
       <h2>Make this week’s worksheets</h2>
@@ -179,11 +210,19 @@
 
 <div class="divider"></div>
 
-<section>
+<section class="reveal">
   <div class="section-label">Also from AIJJ</div>
   <h2>Planning the lesson, too?</h2>
-  <div class="other-apps">
-    <a class="other-app" href="/apps/slateroom"><strong>Slateroom</strong><span>Course outlines and timed lesson plans for teachers, on iPhone and iPad.</span></a>
+  <div class="app-promo-card">
+    <img src="/assets/apps/slateroom/03-result.jpg" width="600" height="1304" alt="Slateroom course outline result screen" loading="lazy" decoding="async">
+    <div>
+      <strong>Slateroom</strong>
+      <p>Course outlines and timed lesson plans for teachers, on iPhone and iPad.</p>
+      <div class="promo-actions">
+        <a class="btn btn-dark" href="https://apps.apple.com/us/app/slateroom/id6806487773" target="_blank" rel="noopener">Download on the App Store →</a>
+        <a class="btn btn-ghost" href="/apps/slateroom">Details</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -201,5 +240,6 @@
   </div>
 </footer>
 
+<script src="/assets/js/reveal.js"></script>
 </body>
 </html>
