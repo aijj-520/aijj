@@ -1,21 +1,151 @@
 {
   "redirects": [
-    { "source": "/ponder",      "destination": "/", "permanent": true },
-    { "source": "/ponder.html", "destination": "/", "permanent": true },
-    { "source": "/tools/classroom-worksheets/", "destination": "/tools/classroom-worksheets", "permanent": true }
+    {
+      "source": "/ponder",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/ponder.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/tools/classroom-worksheets/",
+      "destination": "/tools/classroom-worksheets",
+      "permanent": true
+    },
+    {
+      "source": "/worksheets/",
+      "destination": "/worksheets",
+      "permanent": true
+    },
+    {
+      "source": "/worksheets.html",
+      "destination": "/worksheets",
+      "permanent": true
+    }
   ],
   "rewrites": [
-    { "source": "/about",   "destination": "/about.html" },
-    { "source": "/blog",    "destination": "/blog.html" },
-    { "source": "/terms",   "destination": "/terms.html" },
-    { "source": "/privacy", "destination": "/privacy.html" },
-    { "source": "/support", "destination": "/support.html" },
-    { "source": "/apps/tactworks", "destination": "/apps/tactworks.html" },
-    { "source": "/apps/slateroom", "destination": "/apps/slateroom.html" },
-    { "source": "/apps/draftmill", "destination": "/apps/draftmill.html" },
-    { "source": "/guides/cold-email-bakery-website", "destination": "/guides/cold-email-bakery-website.html" },
-    { "source": "/guides/course-outline-intro-to-photography", "destination": "/guides/course-outline-intro-to-photography.html" },
-    { "source": "/guides/blog-outline-home-coffee-brewing", "destination": "/guides/blog-outline-home-coffee-brewing.html" },
-    { "source": "/tools/classroom-worksheets", "destination": "/tools/classroom-worksheets.html" }
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/blog",
+      "destination": "/blog.html"
+    },
+    {
+      "source": "/terms",
+      "destination": "/terms.html"
+    },
+    {
+      "source": "/privacy",
+      "destination": "/privacy.html"
+    },
+    {
+      "source": "/support",
+      "destination": "/support.html"
+    },
+    {
+      "source": "/apps/tactworks",
+      "destination": "/apps/tactworks.html"
+    },
+    {
+      "source": "/apps/slateroom",
+      "destination": "/apps/slateroom.html"
+    },
+    {
+      "source": "/apps/draftmill",
+      "destination": "/apps/draftmill.html"
+    },
+    {
+      "source": "/guides/cold-email-bakery-website",
+      "destination": "/guides/cold-email-bakery-website.html"
+    },
+    {
+      "source": "/guides/course-outline-intro-to-photography",
+      "destination": "/guides/course-outline-intro-to-photography.html"
+    },
+    {
+      "source": "/guides/blog-outline-home-coffee-brewing",
+      "destination": "/guides/blog-outline-home-coffee-brewing.html"
+    },
+    {
+      "source": "/tools/classroom-worksheets",
+      "destination": "/tools/classroom-worksheets.html"
+    },
+    {
+      "source": "/worksheets",
+      "destination": "/worksheets.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/worksheets",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'none'; connect-src 'none'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    },
+    {
+      "source": "/worksheets.html",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src 'none'; connect-src 'none'; form-action 'none'; base-uri 'none'; frame-ancestors 'none'"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "no-referrer"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+        },
+        {
+          "key": "Cross-Origin-Opener-Policy",
+          "value": "same-origin"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-cache"
+        }
+      ]
+    }
   ]
 }
