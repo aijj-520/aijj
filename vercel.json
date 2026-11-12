@@ -24,6 +24,56 @@
       "source": "/worksheets.html",
       "destination": "/worksheets",
       "permanent": true
+    },
+    {
+      "source": "/tools/number-line/",
+      "destination": "/tools/number-line",
+      "permanent": true
+    },
+    {
+      "source": "/tools/number-line.html",
+      "destination": "/tools/number-line",
+      "permanent": true
+    },
+    {
+      "source": "/tools/number-line/negative-20-to-20/",
+      "destination": "/tools/number-line/negative-20-to-20",
+      "permanent": true
+    },
+    {
+      "source": "/tools/number-line/negative-20-to-20.html",
+      "destination": "/tools/number-line/negative-20-to-20",
+      "permanent": true
+    },
+    {
+      "source": "/tools/number-line/0-to-100/",
+      "destination": "/tools/number-line/0-to-100",
+      "permanent": true
+    },
+    {
+      "source": "/tools/number-line/0-to-100.html",
+      "destination": "/tools/number-line/0-to-100",
+      "permanent": true
+    },
+    {
+      "source": "/tools/number-line/fractions/",
+      "destination": "/tools/number-line/fractions",
+      "permanent": true
+    },
+    {
+      "source": "/tools/number-line/fractions.html",
+      "destination": "/tools/number-line/fractions",
+      "permanent": true
+    },
+    {
+      "source": "/tools/number-line/decimals/",
+      "destination": "/tools/number-line/decimals",
+      "permanent": true
+    },
+    {
+      "source": "/tools/number-line/decimals.html",
+      "destination": "/tools/number-line/decimals",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -78,6 +128,26 @@
     {
       "source": "/worksheets",
       "destination": "/worksheets.html"
+    },
+    {
+      "source": "/tools/number-line",
+      "destination": "/tools/number-line.html"
+    },
+    {
+      "source": "/tools/number-line/negative-20-to-20",
+      "destination": "/tools/number-line/negative-20-to-20.html"
+    },
+    {
+      "source": "/tools/number-line/0-to-100",
+      "destination": "/tools/number-line/0-to-100.html"
+    },
+    {
+      "source": "/tools/number-line/fractions",
+      "destination": "/tools/number-line/fractions.html"
+    },
+    {
+      "source": "/tools/number-line/decimals",
+      "destination": "/tools/number-line/decimals.html"
     }
   ],
   "headers": [

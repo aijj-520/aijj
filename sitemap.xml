@@ -14,4 +14,9 @@
   <url><loc>https://aijj.net/privacy</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://aijj.net/terms</loc><changefreq>yearly</changefreq><priority>0.5</priority></url>
   <url><loc>https://aijj.net/support</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://aijj.net/tools/number-line</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://aijj.net/tools/number-line/negative-20-to-20</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aijj.net/tools/number-line/0-to-100</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aijj.net/tools/number-line/fractions</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://aijj.net/tools/number-line/decimals</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

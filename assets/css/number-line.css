@@ -1,0 +1,62 @@
+/* Number line generator tool panel. Uses the palette from app-page.css. */
+.nl-hero { padding: 120px 48px 16px; max-width: 900px; }
+.nl-hero h1 { font-size: clamp(2.1rem, 3.8vw, 3.3rem); margin-bottom: 16px; }
+.nl-hero .page-sub { margin-bottom: 0; }
+
+.nl-tool { display: grid; grid-template-columns: minmax(280px, 340px) 1fr; gap: 32px; align-items: start; padding: 24px 48px 64px; }
+.nl-panel { background: var(--warm-white); border: 1px solid var(--border); border-radius: 6px; padding: 24px; }
+.nl-panel fieldset { border: 0; margin: 0 0 18px; padding: 0; min-width: 0; }
+.nl-panel legend, .nl-label { display: block; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; font-weight: 500; }
+.nl-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.nl-row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+.nl-field { display: flex; flex-direction: column; gap: 4px; font-size: 0.82rem; color: var(--mid); min-width: 0; }
+.nl-field input, .nl-field select { font: inherit; font-size: 0.95rem; color: var(--dark); background: #fff; border: 1px solid rgba(92,80,64,0.25); border-radius: 4px; padding: 8px 10px; width: 100%; min-width: 0; }
+.nl-field input:focus, .nl-field select:focus { outline: 2px solid var(--gold-light); outline-offset: 1px; border-color: var(--gold); }
+.nl-seg { display: flex; border: 1px solid rgba(92,80,64,0.25); border-radius: 4px; overflow: hidden; background: #fff; }
+.nl-seg label { flex: 1; text-align: center; cursor: pointer; font-size: 0.82rem; color: var(--mid); position: relative; }
+.nl-seg input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.nl-seg span { display: block; padding: 8px 6px; }
+.nl-seg label + label { border-left: 1px solid rgba(92,80,64,0.2); }
+.nl-seg input:checked + span { background: var(--dark); color: #fff; }
+.nl-seg input:focus-visible + span { outline: 2px solid var(--gold); outline-offset: -2px; }
+.nl-check { display: flex; align-items: center; gap: 8px; font-size: 0.86rem; color: var(--dark); margin: 6px 0; cursor: pointer; }
+.nl-check input { width: 16px; height: 16px; accent-color: var(--dark); }
+.nl-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+.nl-actions button { font: inherit; cursor: pointer; }
+.nl-download { background: var(--dark); color: #fff; border: 1px solid var(--dark); border-radius: 4px; padding: 13px 22px; font-size: 0.85rem; letter-spacing: 0.06em; text-transform: uppercase; transition: background .2s, border-color .2s; }
+.nl-download:hover { background: var(--gold); border-color: var(--gold); }
+.nl-copy { background: transparent; color: var(--mid); border: 1px solid rgba(92,80,64,0.3); border-radius: 4px; padding: 13px 16px; font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; }
+.nl-copy:hover { color: var(--gold); border-color: var(--gold); }
+.nl-msg { min-height: 1.4em; font-size: 0.82rem; color: var(--mid); margin-top: 12px; }
+.nl-msg.is-error { color: #A4321F; }
+.nl-msg.is-ok { color: #2F6B3A; }
+.nl-hint { font-size: 0.78rem; color: var(--light); margin-top: 4px; }
+
+.nl-stage { position: sticky; top: 96px; }
+.nl-preview { width: 100%; background: #fff; box-shadow: 0 1px 2px rgba(26,22,16,.08), 0 12px 32px rgba(26,22,16,.12); border-radius: 2px; transition: opacity .2s; }
+.nl-preview svg { display: block; width: 100%; height: 100%; }
+.nl-preview.is-stale { opacity: 0.35; }
+.nl-stage-cap { font-size: 0.78rem; color: var(--light); margin-top: 12px; text-align: center; }
+
+.nl-presets { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+.nl-presets a { display: inline-block; padding: 9px 14px; border: 1px solid var(--border); border-radius: 999px; font-size: 0.85rem; color: var(--dark); text-decoration: none; background: var(--warm-white); transition: border-color .2s, color .2s; }
+.nl-presets a:hover { border-color: var(--gold); color: var(--gold); }
+.nl-presets a[aria-current="page"] { background: var(--dark); color: #fff; border-color: var(--dark); }
+
+.nl-prose { max-width: 760px; }
+.nl-prose p { color: var(--mid); margin-bottom: 14px; }
+.nl-prose ul { margin: 0 0 14px 20px; color: var(--mid); }
+.nl-prose li { margin-bottom: 6px; }
+.nl-prose a { color: var(--gold); }
+
+@media (max-width: 900px) {
+  .nl-tool { grid-template-columns: 1fr; padding: 16px 24px 48px; }
+  .nl-stage { position: static; order: -1; }
+  .nl-hero { padding: 110px 24px 16px; }
+}
+@media (max-width: 420px) {
+  .nl-tool { padding: 12px 16px 40px; }
+  .nl-hero { padding: 100px 16px 12px; }
+  .nl-panel { padding: 18px 16px; }
+  .nl-row3 { grid-template-columns: 1fr 1fr; }
+}
